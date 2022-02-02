@@ -1,0 +1,11 @@
+C:/Users/Matilde/source/repos/Game/out/build/x64-Debug/CMakeFiles/core.dir
+C:/Users/Matilde/source/repos/Game/out/build/x64-Debug/CMakeFiles/Game.dir
+C:/Users/Matilde/source/repos/Game/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/Matilde/source/repos/Game/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Matilde/source/repos/Game/out/build/x64-Debug/test/CMakeFiles/runAllTests.dir
+C:/Users/Matilde/source/repos/Game/out/build/x64-Debug/test/CMakeFiles/edit_cache.dir
+C:/Users/Matilde/source/repos/Game/out/build/x64-Debug/test/CMakeFiles/rebuild_cache.dir
+C:/Users/Matilde/source/repos/Game/out/build/x64-Debug/test/lib/googletest/CMakeFiles/gtest.dir
+C:/Users/Matilde/source/repos/Game/out/build/x64-Debug/test/lib/googletest/CMakeFiles/gtest_main.dir
+C:/Users/Matilde/source/repos/Game/out/build/x64-Debug/test/lib/googletest/CMakeFiles/edit_cache.dir
+C:/Users/Matilde/source/repos/Game/out/build/x64-Debug/test/lib/googletest/CMakeFiles/rebuild_cache.dir
