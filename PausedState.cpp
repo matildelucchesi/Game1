@@ -36,8 +36,8 @@ void PausedState::setBackground(){
 				pos.x = 50.f;
 				pos.y += size.y + 16.f;
 			}
-		grid[i].setFillColor(sf::Color(49, 47, 48, 255));
-		grid[i].setOutlineColor(sf::Color(155, 152, 152, 255));
+		grid[i].setFillColor(sf::Color(49, 47, 48, opacity));
+		grid[i].setOutlineColor(sf::Color(155, 152, 152, opacity));
 		grid[i].setOutlineThickness(8.f);
 	}
 
@@ -47,31 +47,31 @@ void PausedState::setBackground(){
 	text.setPosition(825.f - (text.getGlobalBounds().width / 2.f), 50.f);
 
 	//strenght
-	strength = sf::Text("Strength: " + std::to_string(this->h->getStrength()), font, 30);
+	strength = sf::Text("Strength: " + std::to_string(this->h->getStrength()), font, gameTextSize);
 	GameState::setTextFeatures(this->strength);
 	strength.setPosition(825.f - (text.getGlobalBounds().width / 2.f), 200.f);
 	//dexterity
-	dexterity = sf::Text("Dexterity: " + std::to_string(this->h->getDexterity()), font, 30);
+	dexterity = sf::Text("Dexterity: " + std::to_string(this->h->getDexterity()), font, gameTextSize);
 	GameState::setTextFeatures(this->dexterity);
 	dexterity.setPosition(825.f - (text.getGlobalBounds().width / 2.f), 250.f);
 	//intelligence
-	intelligence = sf::Text("Intelligence: " + std::to_string(this->h->getIntelligence()), font, 30);
+	intelligence = sf::Text("Intelligence: " + std::to_string(this->h->getIntelligence()), font, gameTextSize);
 	GameState::setTextFeatures(this->intelligence);
 	intelligence.setPosition(825.f - (text.getGlobalBounds().width / 2.f), 300.f);
 	//charisma
-	charisma = sf::Text("Charisma: " + std::to_string(this->h->getCharisma()), font, 30);
+	charisma = sf::Text("Charisma: " + std::to_string(this->h->getCharisma()), font, gameTextSize);
 	GameState::setTextFeatures(this->charisma);
 	charisma.setPosition(825.f - (text.getGlobalBounds().width / 2.f), 350.f);
 	//constitution
-	constitution = sf::Text("Constitution: " + std::to_string(this->h->getConstitution()), font, 30);
+	constitution = sf::Text("Constitution: " + std::to_string(this->h->getConstitution()), font, gameTextSize);
 	GameState::setTextFeatures(this->constitution);
 	constitution.setPosition(825.f - (text.getGlobalBounds().width / 2.f), 400.f);
 	//wisdom
-	wisdom = sf::Text("Wisdom: " + std::to_string(this->h->getWisdom()), font, 30);
+	wisdom = sf::Text("Wisdom: " + std::to_string(this->h->getWisdom()), font, gameTextSize);
 	GameState::setTextFeatures(this->wisdom);
 	wisdom.setPosition(825.f - (text.getGlobalBounds().width / 2.f), 450.f);
 	//potion value
-	value = sf::Text(" ", font, 30);
+	value = sf::Text(" ", font, gameTextSize);
 	GameState::setTextFeatures(this->value);
 	value.setPosition(825.f - (text.getGlobalBounds().width / 2.f), 500.f);
 }
@@ -148,9 +148,9 @@ void PausedState::update() {
 	}
 
 	for (int i = 0; i < MAX_POTION; i++) {
-		grid[i].setOutlineColor(sf::Color(155, 152, 152, 255));
+		grid[i].setOutlineColor(sf::Color(155, 152, 152, opacity));
 	}
-	this->grid[index].setOutlineColor(sf::Color(37, 255, 3, 255));
+	this->grid[index].setOutlineColor(sf::Color(37, 255, 3, opacity));
 
 	if (potion[index] != NULL)
 		value.setString("Potion's value: " + std::to_string(potion[index]->getPotionValue()));

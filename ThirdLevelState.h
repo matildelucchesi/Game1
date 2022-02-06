@@ -15,6 +15,9 @@ using namespace std;
 
 class SecondLevelState;
 
+#define ePosX 1025.f
+#define ePosY 480.f
+
 class ThirdLevelState : public GameState, public Playable {
 public:
 	//Constructor & Destructor
@@ -31,8 +34,6 @@ private:
 	//other states
 	PausedState* p;
 	//tile map
-	TileMap* m;
-	std::vector<sf::FloatRect*> objectBB;
 	sf::Vector2f pos;
 	sf::String str;
 };

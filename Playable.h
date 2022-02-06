@@ -56,6 +56,13 @@ public:
 	void setAchievements();
 	Achievements* getAchievements();
 	Achievements* a;
+	//map
+	TileMap* map;
+	TileMap* getMap();
+	//object's bounding box
+	std::vector<sf::FloatRect*> objectBB;
+	std::vector<sf::FloatRect*> getObjectBoundingBox();
+	void setObjectBoundingBox();
 	
 private:
 	//message bubble

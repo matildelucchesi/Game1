@@ -14,6 +14,8 @@ using namespace std;
 
 #define viewX 1100.f
 #define viewY 620.f
+#define opacity 255
+#define gameTextSize 30
 
 using namespace std;
 

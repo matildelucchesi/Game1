@@ -11,18 +11,17 @@ ThirdLevelState::ThirdLevelState(SecondLevelState& secondState, PausedState& pau
 	//tile map
 	setBackground();
 	//background object bounding box
-	this->objectBB.resize(m->getNumberOfObjectLayer());
-	this->objectBB = m->getBackgoundObjectBoundingBox();
+	setObjectBoundingBox();
 	//message bubble
 	setMessageBubble(str);
 	setMex(false);
 	//Achievements
 	Playable::a = secondState.getAchievements();
-	for (int i = 0; i < m->getInteractiveObjectNumber(); i++) {
-		this->m->getInteractiveObject()[i]->setAchievement(getAchievements());
+	for (int i = 0; i < getMap()->getInteractiveObjectNumber(); i++) {
+		getMap()->getInteractiveObject()[i]->setAchievement(getAchievements());
 	}
 	//enemy
-	setEnemy(0, 100, 2, enemyPosX, enemyPosY);
+	setEnemy(0, 50, 2, ePosX, ePosY);
 	//View
 	pos.x = getHero()->getPosX();
 	pos.y = getHero()->getPosY();
@@ -32,15 +31,15 @@ ThirdLevelState::ThirdLevelState(SecondLevelState& secondState, PausedState& pau
 //tile map
 
 void ThirdLevelState::setBackground() {
-	this->m = new TileMap("../mapXML/TLMap.xml");
+	Playable::map = new TileMap("../mapXML/TLMap.xml");
 }
 
 //Game State
 
 GameState* ThirdLevelState::handleInput(sf::Event evnt) {
-	for (int k = 0; k < m->getInteractiveObjectNumber(); k++) {
-		if (m->getInteractiveObject()[k]->getIsVisited() == false && getHero()->getAnimation().getBoundingBox().intersects(*m->getInteractiveObject()[k]->getBoundingBox())) {
-			if (m->getInteractiveObject()[k]->getName() == "statue")
+	for (int k = 0; k < getMap()->getInteractiveObjectNumber(); k++) {
+		if (getMap()->getInteractiveObject()[k]->getIsVisited() == false && getHero()->getAnimation().getBoundingBox().intersects(*getMap()->getInteractiveObject()[k]->getBoundingBox())) {
+			if (getMap()->getInteractiveObject()[k]->getName() == "statue")
 				setType(0);
 			else
 				setType(1);
@@ -48,16 +47,16 @@ GameState* ThirdLevelState::handleInput(sf::Event evnt) {
 			setCanMove(false);
 			setMex(true);
 			if (evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::A) {
-				m->getInteractiveObject()[k]->open();
+				getMap()->getInteractiveObject()[k]->open();
 			}
-			if (m->getInteractiveObject()[k]->getIsOpen() == true) {
-				if (m->getInteractiveObject()[k]->getIsEmpty() == false) {
+			if (getMap()->getInteractiveObject()[k]->getIsOpen() == true) {
+				if (getMap()->getInteractiveObject()[k]->getIsEmpty() == false) {
 					setType(2);
 					if (evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::S) {
-						getHero()->takePotion(m->getInteractiveObject()[k]);
+						getHero()->takePotion(getMap()->getInteractiveObject()[k]);
 						setMex(false);
 						setCanMove(true);
-						m->getInteractiveObject()[k]->setIsVisited(true);
+						getMap()->getInteractiveObject()[k]->setIsVisited(true);
 					}
 				}
 				else {
@@ -65,7 +64,7 @@ GameState* ThirdLevelState::handleInput(sf::Event evnt) {
 					if (evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::S) {
 						setMex(false);
 						setCanMove(true);
-						m->getInteractiveObject()[k]->setIsVisited(true);
+						getMap()->getInteractiveObject()[k]->setIsVisited(true);
 					}
 				}
 			}
@@ -94,7 +93,7 @@ GameState* ThirdLevelState::handleInput(sf::Event evnt) {
 }
 
 void ThirdLevelState::render(sf::RenderTarget* target) {
-	this->m->render(target);
+	getMap()->render(target);
 	//enemy
 	if (getLive() == true)
 		target->draw(getEnemy()->getAnimation().getSprite());
@@ -120,13 +119,13 @@ void ThirdLevelState::update() {
 		getHero()->getAnimation().updateAnimation(getHero()->getMovementState());
 		getHero()->getAnimation().updateBoundingBox();
 		getHero()->getAnimation().updateLPBubble(getView(), getHero()->getLP());
-		updateCollision(getHero(), this->m, this->objectBB);
+		updateCollision(getHero(), getMap(), getObjectBoundingBox());
 		if (getEnemy() != nullptr)
-			updateCollision(getHero(), getEnemy(), this->m, this->objectBB);
+			updateCollision(getHero(), getEnemy(), getMap(), getObjectBoundingBox());
 		else
-			updateCollision(getHero(), this->m, this->objectBB);
+			updateCollision(getHero(), getMap(), getObjectBoundingBox());
 
-		updateView(getHero(), this->m);
+		updateView(getHero(), getMap());
 	}
 
 	if (getMex() == true) {

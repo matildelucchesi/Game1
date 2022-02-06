@@ -193,3 +193,20 @@ void Playable::setAchievements() {
 Achievements* Playable::getAchievements() {
 	return this->a;
 }
+
+//map
+
+TileMap* Playable::getMap() {
+	return this->map;
+}
+
+//object's bounding box
+
+std::vector<sf::FloatRect*> Playable::getObjectBoundingBox() {
+	return this->objectBB;
+}
+
+void Playable::setObjectBoundingBox() {
+	this->objectBB.resize(getMap()->getNumberOfObjectLayer());
+	this->objectBB = getMap()->getBackgoundObjectBoundingBox();
+}

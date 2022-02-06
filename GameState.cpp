@@ -15,7 +15,7 @@ void GameState::initFont() {
 
 void GameState::setTextFeatures(sf::Text &t) {
 	t.setColor(sf::Color::White);
-	t.setOutlineColor(sf::Color(75, 75, 75, 255));
+	t.setOutlineColor(sf::Color(75, 75, 75, opacity));
 	t.setOutlineThickness(3);
 }
 

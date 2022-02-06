@@ -44,10 +44,6 @@ public:
 	void setBackground() override;
 	void setStop(bool s);
 	void openCastleMessage();
-
-	//map
-	Tile* tile;
-	std::vector<sf::FloatRect*> objectBB;
 	
 private:
 	sf::View view;
@@ -71,8 +67,6 @@ private:
 	sf::Clock gameTimer;
 	//background
 	bool isOpen;
-	//map
-	TileMap *map;
 	//paused state
 	PausedState* pause;
 };

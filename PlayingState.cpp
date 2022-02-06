@@ -7,9 +7,8 @@
 PlayingState::PlayingState(short race, short cl) : GameState() {
 	//tile map
 	setBackground();
-	//background object bounding box
-	objectBB.resize(map->getNumberOfObjectLayer());
-	objectBB = map->getBackgoundObjectBoundingBox();
+	//background object's bounding box
+	setObjectBoundingBox();
 	//Hero
 	Playable::setHeroRace(race);
 	Playable::setHeroClass(cl);
@@ -37,16 +36,16 @@ GameState* PlayingState::handleInput(sf::Event evnt) {
 		return new WeaponMenuState(*this);
 	}
 
-	if(getHero()->getAnimation().getBoundingBox().intersects(*map->getSpecifiedObjectBoundingBox("castle")) && evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::A){
+	if(getHero()->getAnimation().getBoundingBox().intersects(*getMap()->getSpecifiedObjectBoundingBox("castle")) && evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::A){
 		getHero()->setPosX(heroNewLevelPosX);
 		getHero()->setPosY(heroNewLevelPosY);
 		getHero()->getAnimation().getSprite().setPosition(heroNewLevelPosX, heroNewLevelPosY);
-		map->clear();
+		getMap()->clear();
 		return new FirstLevelState(*this, *this->pause);
 	}
 
 	if (evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::A) {
-		map->clear();
+		getMap()->clear();
 		str.clear();
 		return new FirstLevelState(*this, *this->pause);
 	}
@@ -60,7 +59,7 @@ GameState* PlayingState::handleInput(sf::Event evnt) {
 }
 void PlayingState::render(sf::RenderTarget* target) {
 	target->setView(getView());
-	map->render(target);
+	getMap()->render(target);
 	target->draw(getHero()->getAnimation().getSprite());
 	target->draw(getHero()->getAnimation().getLPBubble());
 	target->draw(getHero()->getAnimation().getLPText());
@@ -76,14 +75,14 @@ void PlayingState::update() {
 		getHero()->updateMovement();
 		getHero()->getAnimation().updateAnimation(getHero()->getMovementState());
 		getHero()->getAnimation().updateBoundingBox();
-		updateCollision(getHero(), this->map, this->objectBB);
+		updateCollision(getHero(), getMap(), getObjectBoundingBox());
 	}
 	getHero()->getAnimation().updateLPBubble(getView(), getHero()->getLP());
-	updateView(getHero(), this->map);
+	updateView(getHero(), getMap());
 
 	textAnimation();
 	if (stop == false) {
-		if (getHero()->getPosX() >= this->map->getSpecifiedObjectBoundingBox("castle")->left + 10.f && getHero()->getPosX() <= this->map->getSpecifiedObjectBoundingBox("castle")->left + this->map->getSpecifiedObjectBoundingBox("castle")->width && getHero()->getPosY() <= this->map->getSpecifiedObjectBoundingBox("castle")->top + this->map->getSpecifiedObjectBoundingBox("castle")->height + getHero()->getAnimation().getBoundingBox().height) {
+		if (getHero()->getPosX() >= getMap()->getSpecifiedObjectBoundingBox("castle")->left + 10.f && getHero()->getPosX() <= getMap()->getSpecifiedObjectBoundingBox("castle")->left + getMap()->getSpecifiedObjectBoundingBox("castle")->width && getHero()->getPosY() <= getMap()->getSpecifiedObjectBoundingBox("castle")->top + getMap()->getSpecifiedObjectBoundingBox("castle")->height + getHero()->getAnimation().getBoundingBox().height) {
 			{
 				openCastleMessage();
 			}
@@ -105,7 +104,7 @@ void PlayingState::setStop(bool s) {
 }
 
 void PlayingState::setBackground() {
-	map = new TileMap("../mapXML/PLMap.xml");
+	Playable::map = new TileMap("../mapXML/PLMap.xml");
 }
 
 

@@ -31,7 +31,7 @@ void Enemy::setGameFeatures() {
 	case 0:
 		{
 			setFeatures(11, 12, 12, 19, 17, 17);
-			this->setArmor(ConcreteArmorCreator::TYPE_OF_ARMOR::FULL_ARMOR);
+			this->setArmor(ConcreteArmorCreator::TYPE_OF_ARMOR::HALF_ARMOR);
 			this->setWeapon(ConcreteWeaponCreator::TYPE_OF_WEAPON::SWORD);
 			break;
 		}

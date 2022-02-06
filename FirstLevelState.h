@@ -53,10 +53,6 @@ private:
 	unsigned int character = 0;
 	sf::String string_;
 
-	//map
-	TileMap* m;
-	std::vector<sf::FloatRect*> objectBB;
-
 	//paused state
 	PausedState* p;
 };
