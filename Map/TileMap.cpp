@@ -78,7 +78,7 @@ TileMap::TileMap(const char* xmlfile) {
 	int x, y;
 	
 	while (root1 != nullptr) {
-
+		std::cout << "livello" << l << endl;
 		x = -size.x;
 		y = 0;
 			for (int i = 0; i < mapSize.x; i++) {
@@ -92,7 +92,6 @@ TileMap::TileMap(const char* xmlfile) {
 						x = 0.f;
 						y += size.y;
 					}
-					
 					map[i][j][l] = new Tile(size, this->texture, x, y, std::stoi(element->Attribute("gid")));
 		
 					if (element->NextSiblingElement("tile") != nullptr) {
@@ -100,7 +99,7 @@ TileMap::TileMap(const char* xmlfile) {
 					}
 					else {
 						l += 1 ;
-						if (root1->NextSibling() == root1->NextSiblingElement("objectgroup")) {
+						while (root1->NextSibling() == root1->NextSiblingElement("objectgroup") && root1->NextSibling() != nullptr) {
 							l++;
 							root1 = root1->NextSibling();
 						}
@@ -202,20 +201,13 @@ TileMap::TileMap(const char* xmlfile) {
 	std::string treasure = "treasure";
 	std::string statue = "statue";
 
-	while (root2 != nullptr) {
-		
+	while (element != nullptr) {
 		if (element->Attribute("name") == treasure || element->Attribute("name") == statue) {
 			numInteractiveOb++;
 		}
-
-		root2 = root2->NextSibling();
-		if (root2->NextSibling() != nullptr) {
-			element = root2->NextSiblingElement("objectgroup");
-		}
-		else
-			break;
+		element = element->NextSiblingElement("objectgroup");
 	}
-
+	
 	//if the number of interactive objects isn't 0, add objects in interactiveOb
 	int m = 0, q = -1, r = 0;
 
@@ -310,27 +302,27 @@ sf::FloatRect* TileMap::getSpecifiedObjectBoundingBox(std::string layerName) {
 	tinyxml2::XMLNode* r = doc.FirstChildElement("map");
 	tinyxml2::XMLElement* e = r->FirstChildElement("objectgroup");
 	r = r->FirstChildElement("objectgroup");
-	
+
 	int c = 0;
 
 	while (r != nullptr) {
-
+		std::cout << e->Attribute("name") << endl;
+		std::cout << c << endl;
 		if (layerName == e->Attribute("name")) {
 			return oBoundingBox[c];
 		}
-		else {
-			if (e->NextSibling() != e->NextSiblingElement("layer")) {
+		if (r->NextSibling() != nullptr) {
+			if (r->NextSibling() != r->NextSiblingElement("layer")) {
 				e = r->NextSiblingElement("objectgroup");
-				r = r->NextSiblingElement("objectgroup");
+				r = r->NextSibling();
 				c++;
 			}
-			else {
+			else
 				r = r->NextSibling();
-				e = r->NextSiblingElement("objectgroup");
-			}
 		}
+		else
+			break;
 	}
-	
 }
 
 void TileMap::changeTile(int layerNumber, std::vector<Tile*> tile) {
