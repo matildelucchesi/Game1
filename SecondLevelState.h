@@ -18,7 +18,7 @@ using namespace std;
 #define enemyPosX 1280.f
 #define enemyPosY 850.f
 #define TposX 1000.f
-#define TposY 2000.f
+#define TposY 1700.f
 
 class FirstLevelState;
 class ThirdLevelState;

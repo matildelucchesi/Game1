@@ -88,6 +88,13 @@ GameState* ThirdLevelState::handleInput(sf::Event evnt) {
 			return new FightState(*this);
 	}
 
+	if (getLive() == false) {
+		setType(6);
+		setMex(true);
+		if (evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::A)
+			return new EndState();
+	}
+
 
 	return this;
 }

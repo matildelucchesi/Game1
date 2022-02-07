@@ -111,6 +111,11 @@ void Playable::updateMessage(sf::View v) {
 		text.setString("Press A to go upstairs");
 		break;
 	}
+	case 6:
+	{
+		text.setString("Congratulations! You save the princess!\nPress A to continue");
+		break;
+	}
 	}
 
 	messageBubble.setPosition(v.getCenter().x - 450, v.getCenter().y + 80);

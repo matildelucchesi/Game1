@@ -123,8 +123,8 @@ void FirstLevelState::update() {
 		getHero()->getAnimation().updateAnimation(getHero()->getMovementState());
 		getHero()->getAnimation().updateBoundingBox();
 		getHero()->getAnimation().updateLPBubble(getView(), getHero()->getLP());
-		if (this->e != nullptr)
-			updateCollision(getHero(), this->e, getMap(), getObjectBoundingBox());
+		if (getEnemy() != nullptr)
+			updateCollision(getHero(), getEnemy(), getMap(), getObjectBoundingBox());
 		else
 			updateCollision(getHero(), getMap(), getObjectBoundingBox());
 		updateView(getHero(), getMap());
