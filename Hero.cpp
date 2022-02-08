@@ -333,8 +333,14 @@ void Hero::takePotion(InteractiveObject* obj) {
 		std::cout << "You can't take this";
 	else {
 		obj->takePotion();
-		POTION[numPotion] = obj->getPotion();
 		numPotion += 1;
+		int e = 0;
+		while (e != numPotion){
+			if (POTION[e] == NULL)
+				POTION[e] = obj->getPotion();
+			
+			e++;
+		}
 	}
 
 }
@@ -344,6 +350,7 @@ void Hero::usePotion(short i) {
 	if (getLP() > 100)
 		setLP(100);
 	POTION[i] = NULL;
+	numPotion -= 1;
 }
 
 std::shared_ptr<Potion> Hero::getPotion(int i) {
