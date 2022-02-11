@@ -10,7 +10,7 @@ public:
 	ConcreteWeaponCreator() = default;
 	~ConcreteWeaponCreator() = default;
 	//Create Weapon
-	std::unique_ptr<ConcreteWeapon> createWeapon(TYPE_OF_WEAPON type) override;
+	ConcreteWeapon createWeapon(TYPE_OF_WEAPON type) override;
 
 };
 

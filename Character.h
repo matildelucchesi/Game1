@@ -55,7 +55,6 @@ public:
 	void setInitiative();
 	int getInitiative() const;
 
-	int getCA() const;
 	virtual void setArmor(ConcreteArmorCreator::TYPE_OF_ARMOR type) = 0;
 	std::string getTypeOfArmor() const;
 
@@ -66,9 +65,10 @@ public:
 	short getRace();
 
 	//Armor & Weapon
-	std::unique_ptr<ConcreteArmor> ar;
+	ConcreteArmor ar;
+	ConcreteArmor getArmor();
 	ConcreteArmorCreator armorFactory;
-	std::unique_ptr<ConcreteWeapon> wp;
+	ConcreteWeapon wp;
 	ConcreteWeaponCreator weaponFactory;
 
 	//dice

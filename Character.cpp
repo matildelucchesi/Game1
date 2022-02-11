@@ -135,19 +135,12 @@ float Character::getPosY() const {
 	return this->posY;
 }
 
-int Character::getCA() const {
-	return this->ar->getCA();
-	
-}
-
 std::string Character::getTypeOfWeapon() const {
-	std::string t = this->wp->getType();
-	return t;
+	return this->wp.getType();
 }
 
 std::string Character::getTypeOfArmor() const {
-	std::string a = this->ar->getType();
-	return a;
+	return this->ar.getType();
 }
 
 void Character::setDice() {
@@ -168,4 +161,8 @@ void Character::setRace(short r) {
 
 short Character::getRace() {
 	return this->race;
+}
+
+ConcreteArmor Character::getArmor() {
+	return this->ar;
 }

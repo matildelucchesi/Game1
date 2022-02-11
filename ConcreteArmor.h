@@ -9,13 +9,14 @@ using namespace std;
 class ConcreteArmor : public Armor {
 public:
 	//Constructor & Destructor
+	ConcreteArmor();
 	ConcreteArmor(int ca, int c, std::string t);
 	~ConcreteArmor() = default;
 
 	std::string getType() const override;
 	
 	void setCA(int ca);
-	const int getCA();
+	int getCA() const;
 
 	void setCost(int c);
 	int getCost() const;

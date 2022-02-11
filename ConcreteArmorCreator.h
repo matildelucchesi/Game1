@@ -12,7 +12,7 @@ public:
 	ConcreteArmorCreator() = default;
 	~ConcreteArmorCreator() = default;
 	//Create Armor
-	std::unique_ptr<ConcreteArmor> createArmor(TYPE_OF_ARMOR type) override;
+	ConcreteArmor createArmor(TYPE_OF_ARMOR type) override;
 };
 
 #endif CONCRETEARMORCREATOR_H

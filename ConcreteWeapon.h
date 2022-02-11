@@ -6,6 +6,7 @@
 class ConcreteWeapon : public Weapon {
 public:
 	//Constructor & Destructor
+	ConcreteWeapon();
 	ConcreteWeapon(int c, std::string t);
 	~ConcreteWeapon() = default;
 	//Weapon Stuff

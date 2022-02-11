@@ -1,4 +1,7 @@
 #include "ConcreteWeapon.h"
+ConcreteWeapon::ConcreteWeapon() {
+
+}
 
 ConcreteWeapon::ConcreteWeapon(int c, std::string t) {
 	this->setCost(c);

@@ -10,7 +10,7 @@ using namespace std;
 class ArmorCreator {
 public:
 	enum class TYPE_OF_ARMOR { FULL_ARMOR, HALF_ARMOR, PADDED_ARMOR, NONE };
-	virtual std::unique_ptr<ConcreteArmor> createArmor(TYPE_OF_ARMOR type)= 0;
+	virtual ConcreteArmor createArmor(TYPE_OF_ARMOR type)= 0;
 	//Virtual Destructor
 	virtual ~ArmorCreator() = 0;
 };

@@ -1,4 +1,7 @@
 #include "ConcreteArmor.h"
+ConcreteArmor::ConcreteArmor() {
+
+}
 
 ConcreteArmor::ConcreteArmor(int ca, int c, std::string t) : CA(ca), cost(c), type(t) {}
 
@@ -10,7 +13,7 @@ void ConcreteArmor::setCA(int ca) {
 	this->CA = ca;
 }
 
-const int ConcreteArmor::getCA() {
+int ConcreteArmor::getCA() const {
 	return this->CA;
 }
 

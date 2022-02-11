@@ -53,11 +53,11 @@ void Enemy::setGameFeatures() {
 }
 
 void Enemy::setArmor(ConcreteArmorCreator::TYPE_OF_ARMOR type) {
-	ar = armorFactory.createArmor(type);
+	this->ar = armorFactory.createArmor(type);
 }
 
 void Enemy::setWeapon(ConcreteWeaponCreator::TYPE_OF_WEAPON type) {
-	wp = weaponFactory.createWeapon(type);
+	this->wp = this->weaponFactory.createWeapon(type);
 }
 
 //Animation

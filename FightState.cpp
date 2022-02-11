@@ -31,7 +31,7 @@ void FightState::setBackground() {
 	GameState::setTextFeatures(this->messageT);
 
 	//hero
-	heroCAText = sf::Text("CA: " + std::to_string(this->h->getCA()), font, 50);
+	heroCAText = sf::Text("CA: " + std::to_string(this->h->getArmor().getCA()), font, 50);
 	GameState::setTextFeatures(this->heroCAText);
 	heroCAText.setPosition(viewX / 2.f - 387.f, viewY / 2.f + 150.f);
 		
@@ -40,7 +40,7 @@ void FightState::setBackground() {
 	heroInitiative.setPosition(viewX / 2.f - 95.f - heroInitiative.getGlobalBounds().width, viewY / 2.f - 30.f);
 	
 	//enemy
-	enemyCAText = sf::Text("CA: "+ std::to_string(e->getCA()), font, 50);
+	enemyCAText = sf::Text("CA: "+ std::to_string(e->getArmor().getCA()), font, 50);
 	GameState::setTextFeatures(this->enemyCAText);
 	enemyCAText.setPosition(viewX / 2.f + 313.f, viewY / 2.f + 150.f);
 
@@ -227,7 +227,7 @@ void FightState::heroAttack() {
 	heroResult = h->throwDiceFight();
 	heroNumber.setString(std::to_string(heroResult));
 	heroNumber.setPosition(viewX / 2.f - (heroNumber.getGlobalBounds().width / 2.f), viewY / 2.f - 10.f);
-	if (heroResult >= e->getCA()) {
+	if (heroResult >= e->getArmor().getCA()) {
 		type = 5;
 		e->setLP(e->getLP() - heroResult);
 		if (e->getLP() < 0)
@@ -243,7 +243,7 @@ void FightState::enemyAttack() {
 	enemyResult = e->throwDiceFight();
 	enemyNumber.setString(std::to_string(enemyResult));
 	enemyNumber.setPosition(viewX / 2.f - (enemyNumber.getGlobalBounds().width / 2.f), viewY / 2.f - 10.f);
-	if (enemyResult >= h->getCA()) {
+	if (enemyResult >= h->getArmor().getCA()) {
 		type = 7;
 		h->setLP(h->getLP() - enemyResult);
 		if (h->getLP() < 0)

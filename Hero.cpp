@@ -99,12 +99,9 @@ void Hero::setGoldCoins(int gc){
 }
 
 void Hero::setArmor(ConcreteArmorCreator::TYPE_OF_ARMOR type) {
-	ar = armorFactory.createArmor(type);
-	if (getGoldCoins() >= ar->getCost()) {
-		setGoldCoins(getGoldCoins() - ar->getCost());
-	}
-	else {
-		ar = nullptr;
+	this->ar = armorFactory.createArmor(type);
+	if (getGoldCoins() >= this->ar.getCost()) {
+		setGoldCoins(getGoldCoins() - this->ar.getCost());
 	}
 }
 
@@ -120,12 +117,9 @@ void Hero::setTypeOfArmor(std::string type) {
 }
 
 void Hero::setWeapon(ConcreteWeaponCreator::TYPE_OF_WEAPON type) {
-	wp = weaponFactory.createWeapon(type);
-	if (getGoldCoins() >= wp->getCost()) {
-		setGoldCoins(getGoldCoins() - wp->getCost());
-	}
-	else {
-		wp = nullptr;
+	this->wp = weaponFactory.createWeapon(type);
+	if (getGoldCoins() >= this->wp.getCost()) {
+		setGoldCoins(getGoldCoins() - this->wp.getCost());
 	}
 }
 
