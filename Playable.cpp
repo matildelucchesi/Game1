@@ -59,7 +59,7 @@ void Playable::updateCollision(std::shared_ptr<Hero> h, TileMap* m, std::vector<
 
 void Playable::updateCollision(std::shared_ptr<Hero> h, std::shared_ptr<Enemy> e, TileMap* m, std::vector<sf::FloatRect*> oBB) {
 	h->getAnimation().boundCollision(m->getBackgroundBoundingBox());
-	h->getAnimation().boundCollision(&e->getAnimation().getBoundingBox());
+	h->getAnimation().collision(&e->getAnimation().getBoundingBox());
 	for (int i = 0; i < m->getNumberOfObjectLayer(); i++) {
 		h->getAnimation().collision(oBB[i]);
 	}
@@ -199,6 +199,12 @@ Achievements* Playable::getAchievements() {
 	return this->a;
 }
 
+void Playable::setInteractiveObjectAchievements() {
+	for (int i = 0; i < map->getInteractiveObjectNumber(); i++) {
+		map->getInteractiveObject()[i]->setAchievement(getAchievements());
+	}
+}
+
 //map
 
 TileMap* Playable::getMap() {
@@ -214,4 +220,42 @@ std::vector<sf::FloatRect*> Playable::getObjectBoundingBox() {
 void Playable::setObjectBoundingBox() {
 	this->objectBB.resize(getMap()->getNumberOfObjectLayer());
 	this->objectBB = getMap()->getBackgoundObjectBoundingBox();
+}
+
+//interaction
+
+void Playable::objectInteraction(sf::Event e) {
+	for (int k = 0; k < getMap()->getInteractiveObjectNumber(); k++) {
+		if (getMap()->getInteractiveObject()[k]->getIsVisited() == false && getHero()->getAnimation().getBoundingBox().intersects(*getMap()->getInteractiveObject()[k]->getBoundingBox())) {
+			if (getMap()->getInteractiveObject()[k]->getName() == "statue")
+				setType(0);
+			else
+				setType(1);
+
+			setCanMove(false);
+			setMex(true);
+			if (e.type == e.KeyPressed && e.key.code == sf::Keyboard::A) {
+				getMap()->getInteractiveObject()[k]->open();
+			}
+			if (getMap()->getInteractiveObject()[k]->getIsOpen() == true) {
+				if (getMap()->getInteractiveObject()[k]->getIsEmpty() == false) {
+					setType(2);
+					if (e.type == e.KeyPressed && e.key.code == sf::Keyboard::S) {
+						getHero()->takePotion(getMap()->getInteractiveObject()[k]);
+						setMex(false);
+						setCanMove(true);
+						getMap()->getInteractiveObject()[k]->setIsVisited(true);
+					}
+				}
+				else {
+					setType(3);
+					if (e.type == e.KeyPressed && e.key.code == sf::Keyboard::S) {
+						setMex(false);
+						setCanMove(true);
+						getMap()->getInteractiveObject()[k]->setIsVisited(true);
+					}
+				}
+			}
+		}
+	}
 }

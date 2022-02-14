@@ -17,8 +17,6 @@ using namespace std;
 #define opacity 255
 #define gameTextSize 30
 
-using namespace std;
-
 class GameState {
 public:
 	//Constructor & Destructor

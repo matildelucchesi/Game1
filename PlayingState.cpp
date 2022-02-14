@@ -36,21 +36,13 @@ GameState* PlayingState::handleInput(sf::Event evnt) {
 		return new WeaponMenuState(*this);
 	}
 
-	if(getHero()->getAnimation().getBoundingBox().intersects(*getMap()->getSpecifiedObjectBoundingBox("castle")) && evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::A){
+	if (getHero()->getAnimation().getBoundingBox().intersects(*getMap()->getSpecifiedObjectBoundingBox("castle")) && evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::A) {
 		getHero()->setPosX(heroNewLevelPosX);
 		getHero()->setPosY(heroNewLevelPosY);
 		getHero()->getAnimation().getSprite().setPosition(heroNewLevelPosX, heroNewLevelPosY);
 		getMap()->clear();
 		return new FirstLevelState(*this, *this->pause);
 	}
-
-	if (evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::A) {
-		getMap()->clear();
-		str.clear();
-		return new FirstLevelState(*this, *this->pause);
-	}
-
-
 
 	if (evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::Enter)
 		return this->pause;

@@ -16,8 +16,7 @@ FirstLevelState::FirstLevelState(PlayingState& playingState, PausedState& paused
 	setView(pos);
 	//Achievements
 	setAchievements();
-	for (int i = 0; i < getMap()->getInteractiveObjectNumber(); i++)
-		this->getMap()->getInteractiveObject()[i]->setAchievement(getAchievements());
+	setInteractiveObjectAchievements();
 	//enemy
 	setEnemy(2, 30, 1, enemyPosX, enemyPosY);
 	//message bubble
@@ -31,40 +30,7 @@ FirstLevelState::FirstLevelState(PlayingState& playingState, PausedState& paused
 
 GameState* FirstLevelState::handleInput(sf::Event evnt) {
 
-	for (int k = 0; k < getMap()->getInteractiveObjectNumber(); k++) {
-		if(getMap()->getInteractiveObject()[k]->getIsVisited() == false && getHero()->getAnimation().getBoundingBox().intersects(*getMap()->getInteractiveObject()[k]->getBoundingBox())){
-			if (getMap()->getInteractiveObject()[k]->getName() == "statue")
-				setType(0);
-			else
-				setType(1);
-
-			setCanMove(false);
-
-			setMex(true);
-			if (evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::A) {
-				getMap()->getInteractiveObject()[k]->open();
-			}
-			if (getMap()->getInteractiveObject()[k]->getIsOpen() == true) {
-				if (getMap()->getInteractiveObject()[k]->getIsEmpty() == false) {
-					setType(2);
-					if (evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::S) {
-						getHero()->takePotion(getMap()->getInteractiveObject()[k]);
-						setMex(false);
-						setCanMove(true);
-						getMap()->getInteractiveObject()[k]->setIsVisited(true);
-					}
-				}
-				else {
-					setType(3);
-					if (evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::S) {
-						setMex(false);
-						setCanMove(true);
-						getMap()->getInteractiveObject()[k]->setIsVisited(true);
-					}
-				}
-			}
-		}
-	}
+	objectInteraction(evnt);
 
 	if (getLive() == true && getHero()->getAnimation().getBoundingBox().left >= getMap()->getSpecifiedObjectBoundingBox("wall5")->left && getHero()->getPosY() <= getEnemy()->getAnimation().getBoundingBox().top + getEnemy()->getAnimation().getBoundingBox().height + getHero()->getAnimation().getBoundingBox().height && getHero()->getPosY() >= getEnemy()->getAnimation().getBoundingBox().top) {
 		setMex(true);
@@ -123,13 +89,12 @@ void FirstLevelState::update() {
 		getHero()->getAnimation().updateAnimation(getHero()->getMovementState());
 		getHero()->getAnimation().updateBoundingBox();
 		getHero()->getAnimation().updateLPBubble(getView(), getHero()->getLP());
-		if (getEnemy() != nullptr)
-			updateCollision(getHero(), getEnemy(), getMap(), getObjectBoundingBox());
-		else
-			updateCollision(getHero(), getMap(), getObjectBoundingBox());
+		updateCollision(getHero(), getMap(), getObjectBoundingBox());
 		updateView(getHero(), getMap());
 	}
-	
+	if (getEnemy() != nullptr)
+		updateCollision(getHero(), getEnemy(), getMap(), getObjectBoundingBox());
+
 	if (getMex() == true) {
 			updateMessage(getView());
 	}
