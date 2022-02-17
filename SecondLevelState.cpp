@@ -19,7 +19,7 @@ SecondLevelState::SecondLevelState(FirstLevelState& firstState, PausedState& pau
 	Playable::a = first.getAchievements();
 	setInteractiveObjectAchievements();
 	//enemy
-	setEnemy(1, 50, 1, enemyPosX, enemyPosY);
+	setEnemy(1, 50, 1, enemyPos1X, enemyPos1Y);
 	//View
 	pos.x = getHero()->getPosX();
 	pos.y = getHero()->getPosY();
