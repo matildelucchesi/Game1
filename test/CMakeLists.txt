@@ -8,7 +8,7 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 find_package(SFML 2 COMPONENTS system window graphics REQUIRED )
 find_package(tinyxml2 CONFIG REQUIRED)
 
-set(TEST_SOURCE_FILES runTests.cpp heroTest.cpp enemyTest.cpp statueTest.cpp treasureTest.cpp armorTest.cpp weaponTest.cpp)
+set(TEST_SOURCE_FILES runTests.cpp heroTest.cpp enemyTest.cpp armorTest.cpp weaponTest.cpp)
 add_executable(runAllTests ${TEST_SOURCE_FILES})
 
 target_link_libraries(runAllTests PRIVATE gtest gtest_main core sfml-system sfml-network sfml-graphics sfml-window tinyxml2::tinyxml2)
