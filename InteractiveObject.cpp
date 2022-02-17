@@ -4,8 +4,8 @@ InteractiveObject::InteractiveObject(TileMap* map,std::string name, bool empty, 
 	isVisited = false;
 	isOpen = false;
 	isEmpty = empty;
-	posX = bBox->left;
-	posY = bBox->top;
+	posX = (int)bBox->left;
+	posY = (int)bBox->top;
 	n = name;
 	m = map;
 	l = layerNumber;

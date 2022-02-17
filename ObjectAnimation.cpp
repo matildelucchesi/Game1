@@ -22,10 +22,10 @@ void ObjectAnimation::update(){
 	size.y = texture.getSize().y / tileSize.y;
 	
 	int s = 0;
-	int posX = boundingBox.left;
-	int posY = boundingBox.top;
+	float posX = boundingBox.left;
+	float posY = boundingBox.top;
 
-	numberOfTile = size.x * size.y;
+	numberOfTile = (int)(size.x * size.y);
 	
 	tile.resize(numberOfTile);
 

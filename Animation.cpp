@@ -57,10 +57,10 @@ void Animation::updateAnimation(short movingState) {
 	case 6:
 	{
 		if (animationTimer.getElapsedTime().asSeconds() >= 0.1f) {
-			this->currentFrame.top = 64.f;
-			this->currentFrame.left += 64.f;
-			if (this->currentFrame.left >= 192.f) {
-				this->currentFrame.left = 0.f;
+			this->currentFrame.top = 64;
+			this->currentFrame.left += 64;
+			if (this->currentFrame.left >= 192) {
+				this->currentFrame.left = 0;
 			}
 			animationTimer.restart();
 			sprite.setTextureRect(this->currentFrame);
@@ -70,10 +70,10 @@ void Animation::updateAnimation(short movingState) {
 	case 7:
 	{
 		if (animationTimer.getElapsedTime().asSeconds() >= 0.1f) {
-			this->currentFrame.top = 128.f;
-			this->currentFrame.left += 64.f;
-			if (this->currentFrame.left >= 192.f) {
-				this->currentFrame.left = 0.f;
+			this->currentFrame.top = 128;
+			this->currentFrame.left += 64;
+			if (this->currentFrame.left >= 192) {
+				this->currentFrame.left = 0;
 			}
 			animationTimer.restart();
 			sprite.setTextureRect(this->currentFrame);
@@ -83,10 +83,10 @@ void Animation::updateAnimation(short movingState) {
 	case 8:
 	{
 		if (animationTimer.getElapsedTime().asSeconds() >= 0.1f) {
-			this->currentFrame.top = 192.f;
-			this->currentFrame.left += 64.f;
-			if (this->currentFrame.left >= 192.f) {
-				this->currentFrame.left = 0.f;
+			this->currentFrame.top = 192;
+			this->currentFrame.left += 64;
+			if (this->currentFrame.left >= 192) {
+				this->currentFrame.left = 0;
 			}
 			animationTimer.restart();
 			sprite.setTextureRect(this->currentFrame);
@@ -96,10 +96,10 @@ void Animation::updateAnimation(short movingState) {
 	case 9:
 	{
 		if (animationTimer.getElapsedTime().asSeconds() >= 0.1f) {
-			this->currentFrame.top = 0.f;
-			this->currentFrame.left += 64.f;
-			if (this->currentFrame.left >= 192.f) {
-				this->currentFrame.left = 0.f;
+			this->currentFrame.top = 0;
+			this->currentFrame.left += 64;
+			if (this->currentFrame.left >= 192) {
+				this->currentFrame.left = 0;
 			}
 			animationTimer.restart();
 			sprite.setTextureRect(this->currentFrame);
