@@ -42,7 +42,6 @@ public:
 
 	//render stuff
 	void setBackground() override;
-	void setStop(bool s);
 	void openCastleMessage();
 	
 private:
@@ -61,12 +60,8 @@ private:
 	sf::Clock timer;
 	unsigned int character = 0;
 	sf::String str;
-	//control 
-	bool stop;
 	//Time
 	sf::Clock gameTimer;
-	//background
-	bool isOpen;
 	//paused state
 	PausedState* pause;
 };

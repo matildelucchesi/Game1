@@ -93,7 +93,7 @@ GameState* ArmorMenuState::handleInput(sf::Event evnt) {
 			if (this->canBuy == true) {
 				chooseArmor();
 				this->play.getHero()->setTypeOfArmor(aType);
-				play.setStop(false);
+				play.setCanMove(true);
 				return &this->play;
 			}
 			else {

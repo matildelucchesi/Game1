@@ -13,6 +13,7 @@ PlayingState::PlayingState(short race, short cl) : GameState() {
 	Playable::setHeroRace(race);
 	Playable::setHeroClass(cl);
 	Playable::setHero();
+	setCanMove(false);
 	//View
 	position.x = getHero()->getPosX();
 	position.y = getHero()->getPosY();
@@ -22,9 +23,6 @@ PlayingState::PlayingState(short race, short cl) : GameState() {
 	//messsage bubble
 	str = "Hey! You're the hero of this story!\nThe mindflayer Ronkahudroth has kidnapped the princess Metalyn,\nand took her inside his castle! Now you have to save her!\n...But, first of all, you have to choose an armor and a weapon to\nface the pitfalls that you will find in front of you, so let's press W!";
 	setMessageBubble(getView(), str);
-	//control
-	stop = true;
-	isOpen = false;
 	//Paused State
 	pause = new PausedState(*this, this->getHero());
 	//clock
@@ -36,12 +34,16 @@ GameState* PlayingState::handleInput(sf::Event evnt) {
 		return new WeaponMenuState(*this);
 	}
 
-	if (getHero()->getAnimation().getBoundingBox().intersects(*getMap()->getSpecifiedObjectBoundingBox("castle")) && evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::A) {
-		getHero()->setPosX(heroNewLevelPosX);
-		getHero()->setPosY(heroNewLevelPosY);
-		getHero()->getAnimation().getSprite().setPosition(heroNewLevelPosX, heroNewLevelPosY);
-		getMap()->clear();
-		return new FirstLevelState(*this, *this->pause);
+	if (getHero()->getAnimation().getBoundingBox().intersects(*getMap()->getSpecifiedObjectBoundingBox("castle"))) {
+		setCanMove(false);
+		openCastleMessage();
+		if (evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::A) {
+			getHero()->setPosX(heroNewLevelPosX);
+			getHero()->setPosY(heroNewLevelPosY);
+			getHero()->getAnimation().getSprite().setPosition(heroNewLevelPosX, heroNewLevelPosY);
+			getMap()->clear();
+			return new FirstLevelState(*this, *this->pause);
+		}
 	}
 
 	if (evnt.type == evnt.KeyPressed && evnt.key.code == sf::Keyboard::Enter)
@@ -56,14 +58,14 @@ void PlayingState::render(sf::RenderTarget* target) {
 	target->draw(getHero()->getAnimation().getLPBubble());
 	target->draw(getHero()->getAnimation().getLPText());
 	
-	if (stop == true) {
+	if (getCanMove() == false) {
 		target->draw(getMessageBubble());
 		target->draw(getText());
 	}
 }
 
 void PlayingState::update() {
-	if (gameTimer.getElapsedTime() > sf::seconds(1) && stop == false) {
+	if (gameTimer.getElapsedTime() > sf::seconds(1) && getCanMove() == true) {
 		getHero()->updateMovement();
 		getHero()->getAnimation().updateAnimation(getHero()->getMovementState());
 		getHero()->getAnimation().updateBoundingBox();
@@ -73,13 +75,6 @@ void PlayingState::update() {
 	updateView(getHero(), getMap());
 
 	textAnimation();
-	if (stop == false) {
-		if (getHero()->getPosX() >= getMap()->getSpecifiedObjectBoundingBox("castle")->left + 10.f && getHero()->getPosX() <= getMap()->getSpecifiedObjectBoundingBox("castle")->left + getMap()->getSpecifiedObjectBoundingBox("castle")->width && getHero()->getPosY() <= getMap()->getSpecifiedObjectBoundingBox("castle")->top + getMap()->getSpecifiedObjectBoundingBox("castle")->height + getHero()->getAnimation().getBoundingBox().height) {
-			{
-				openCastleMessage();
-			}
-		}
-	}
 }
 
 void PlayingState::setRace(short race) {
@@ -88,11 +83,6 @@ void PlayingState::setRace(short race) {
 
 void PlayingState::setClass(short cl) {
 	c = cl;
-}
-
-
-void PlayingState::setStop(bool s) {
-	this->stop = s;
 }
 
 void PlayingState::setBackground() {
@@ -104,5 +94,5 @@ void PlayingState::openCastleMessage() {
 	str.clear();
 	str = "You have now arrived at the castle entrance! Press A to enter!";
 	updateMessageBubble(getView(), str);
-	stop = true;
+	setCanMove(false);
 }

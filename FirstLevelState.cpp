@@ -2,6 +2,7 @@
 #include "PausedState.h"
 
 FirstLevelState::FirstLevelState(PlayingState& playingState, PausedState& pausedState) : playingState_(playingState){
+	std::cout << "cia" << endl;
 	//tile map
 	setBackground();
 	//background object's bounding box
