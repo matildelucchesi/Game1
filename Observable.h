@@ -20,4 +20,4 @@ public:
 };
 
 
-#endif OBSERVABLE_H
+#endif

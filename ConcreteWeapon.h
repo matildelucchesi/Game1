@@ -20,4 +20,4 @@ private:
 	std::string type;
 	
 };
-#endif CONCRETEWEAPON_H
+#endif

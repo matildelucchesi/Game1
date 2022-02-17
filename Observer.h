@@ -8,4 +8,4 @@ public:
 	virtual void updateStatue() = 0;
 };
 
-#endif OBSERVER_H
+#endif

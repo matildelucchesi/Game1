@@ -38,4 +38,4 @@ private:
 	short index;
 };
 
-#endif PAUSEDSTATE_H
+#endif

@@ -58,4 +58,4 @@ private:
 	std::string wType;
 };
 
-#endif WEAPONMENUSTATE_H
+#endif 

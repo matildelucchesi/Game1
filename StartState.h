@@ -23,4 +23,4 @@ private:
 	sf::Sprite sprite;
 };
 
-#endif STARTSTATE_H
+#endif 

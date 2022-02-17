@@ -49,4 +49,4 @@ private:
 	sf::Text lptext;
 }; 
 
-#endif ENEMY_H
+#endif 

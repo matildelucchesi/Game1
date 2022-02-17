@@ -27,4 +27,4 @@ private:
 	sf::Sprite sprite;
 };
 
-#endif DICE_H
+#endif

@@ -21,4 +21,4 @@ private:
 	sf::Text endMessage;
 };
 
-#endif ENDSTATE_H
+#endif 

@@ -44,4 +44,4 @@ private:
 	sf::String str;
 };
 
-#endif SECONDLEVELSTATE_H
+#endif 

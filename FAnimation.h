@@ -39,4 +39,4 @@ private:
 };
 
 
-#endif FANIMATION_H
+#endif

@@ -47,5 +47,5 @@ private:
 	bool canBuy;
 };
 
-#endif ARMORMENUSTATE_H
+#endif
 

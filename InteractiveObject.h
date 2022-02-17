@@ -74,4 +74,4 @@ private:
 	TileMap* m;
 };
 
-#endif INTERACTIVEOBJECT_H
+#endif

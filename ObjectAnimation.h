@@ -50,4 +50,4 @@ private:
 
 };
 
-#endif OBJECTANIMATION_H
+#endif 

@@ -15,4 +15,4 @@ public:
 	virtual ~ArmorCreator() = 0;
 };
 
-#endif ARMORCREATOR_H
+#endif

@@ -116,4 +116,4 @@ private:
 };
 
 
-#endif HERO_H
+#endif

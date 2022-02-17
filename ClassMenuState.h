@@ -28,4 +28,4 @@ private:
 	short r;
 };
 
-#endif CLASSMENUSTATE_H
+#endif

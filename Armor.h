@@ -12,4 +12,4 @@ public:
 };
 
 
-#endif ARMOR_H
+#endif

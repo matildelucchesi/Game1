@@ -34,4 +34,4 @@ private:
 	sf::Sprite leftArrow;
 };
 
-#endif RACEMENUSTATE_H
+#endif 

@@ -27,4 +27,4 @@ private:
 	std::string type;
 };
 
-#endif CONCRETEARMOR_H
+#endif

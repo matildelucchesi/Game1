@@ -17,4 +17,4 @@ public:
 	virtual ~WeaponCreator() = 0 {};
 };
 
-#endif WEAPONCREATOR_H
+#endif

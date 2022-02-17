@@ -50,4 +50,4 @@ private:
 	GameState* currentState;
 };
 
-#endif GAME_H
+#endif

@@ -72,12 +72,9 @@ set(SOURCE_FILES	Animation.h
 					ThirdLevelState.cpp
 					)
 
-add_library(core ${SOURCE_FILES} "ArmorMenuState.cpp" "FirstLevelState.h" "FirstLevelState.cpp" "FightState.h" "FightState.cpp" "EndState.h" "PausedState.h" "Map/TileMap.h" "Map/Tile.h" "FAnimation.h"  "ArmorCreator.cpp" "Armor.cpp" "Weapon.cpp"  "InteractiveObject.h" "InteractiveObject.cpp" "SecondLevelState.h" "SecondLevelState.cpp")
-
 find_package(SFML COMPONENTS system window graphics CONFIG REQUIRED )
 find_package(tinyxml2 CONFIG REQUIRED)
 
-add_subdirectory(test)
 # Aggiungere l'origine all'eseguibile di questo progetto.
 add_executable (Game  
 				"Achievements.cpp"
@@ -155,6 +152,8 @@ add_executable (Game
 				"ThirdLevelState.cpp")
 
 # TODO: Aggiungere i test e, se necessario, installare le destinazioni.
+add_library(core ${SOURCE_FILES})
+add_subdirectory(test)
 
 target_link_libraries(Game PRIVATE sfml-system sfml-network sfml-graphics sfml-window)
 target_link_libraries(Game PRIVATE tinyxml2::tinyxml2)

@@ -71,4 +71,4 @@ private:
 	PausedState* pause;
 };
 
-#endif PLAYINGSTATE_H
+#endif

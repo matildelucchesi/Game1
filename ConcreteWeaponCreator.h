@@ -14,4 +14,4 @@ public:
 
 };
 
-#endif CONCRETEWEAPONCREATOR_H
+#endif

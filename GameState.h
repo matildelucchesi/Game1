@@ -42,4 +42,4 @@ public:
 	sf::View view;
 };
 
-#endif GAMESTATE_H
+#endif 

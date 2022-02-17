@@ -16,4 +16,4 @@ public:
 	virtual ~Weapon() = 0;
 };
 
-#endif WEAPON_H
+#endif 

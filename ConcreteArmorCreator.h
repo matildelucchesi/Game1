@@ -15,4 +15,4 @@ public:
 	ConcreteArmor createArmor(TYPE_OF_ARMOR type) override;
 };
 
-#endif CONCRETEARMORCREATOR_H
+#endif

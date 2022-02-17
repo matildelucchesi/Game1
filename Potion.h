@@ -26,4 +26,4 @@ private:
 	sf::Sprite potionS;
 };
 
-#endif POTION_H
+#endif 
