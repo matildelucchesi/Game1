@@ -24,7 +24,7 @@ void ArmorMenuState::update() {
 		armor[a].setString("Padded Armor");
 		ca.setString("CA: "+ std::to_string(11));
 		if (this->play.getHero()->getGoldCoins() < 50) {
-			armor[a].setColor(sf::Color::Red);
+			armor[a].setFillColor(sf::Color::Red);
 			canBuy = false;
 		}
 		else
@@ -36,7 +36,7 @@ void ArmorMenuState::update() {
 		this->armor[a].setString("Half Armor");
 		ca.setString("CA: " + std::to_string(15));
 		if (this->play.getHero()->getGoldCoins() < 750) {
-			armor[a].setColor(sf::Color::Red);
+			armor[a].setFillColor(sf::Color::Red);
 			canBuy = false;
 		}
 		else
@@ -49,7 +49,7 @@ void ArmorMenuState::update() {
 		this->armor[a].setString("Full Armor");
 		ca.setString("CA: " + std::to_string(18));
 		if (this->play.getHero()->getGoldCoins() < 1500) {
-			armor[a].setColor(sf::Color::Red);
+			armor[a].setFillColor(sf::Color::Red);
 			canBuy = false;
 		}
 		else

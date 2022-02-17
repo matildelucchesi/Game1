@@ -36,7 +36,7 @@ void FightState::setBackground() {
 	heroCAText.setPosition(viewX / 2.f - 387.f, viewY / 2.f + 150.f);
 		
 	heroInitiative = sf::Text(to_string(h->getInitiative()), font, 80);
-	heroInitiative.setColor(sf::Color::Black);
+	heroInitiative.setFillColor(sf::Color::Black);
 	heroInitiative.setPosition(viewX / 2.f - 95.f - heroInitiative.getGlobalBounds().width, viewY / 2.f - 30.f);
 	
 	//enemy
@@ -45,7 +45,7 @@ void FightState::setBackground() {
 	enemyCAText.setPosition(viewX / 2.f + 313.f, viewY / 2.f + 150.f);
 
 	enemyInitiative = sf::Text(std::to_string(e->getInitiative()), font, 80);
-	enemyInitiative.setColor(sf::Color::Black);
+	enemyInitiative.setFillColor(sf::Color::Black);
 	enemyInitiative.setPosition(viewX / 2.f + 100.f, viewY / 2.f - 30.f);
 
 	//numbers
@@ -68,7 +68,7 @@ void FightState::setBackground() {
 	rectS.setPosition(viewX / 2.f - (rectS.getGlobalBounds().width / 2.f) , viewY / 2.f - 35.f);
 
 	mm = sf::Text(" ", font, 80);
-	mm.setColor(sf::Color::Black);
+	mm.setFillColor(sf::Color::Black);
 	mm.setPosition(viewX / 2.f - (mm.getGlobalBounds().width / 2.f), viewY / 2.f - 45.f);
 
 

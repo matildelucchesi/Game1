@@ -71,7 +71,7 @@ void WeaponMenuState::update() {
 	{
 		weapon[w].setString("Arch");
 		if (play.getHero()->getGoldCoins() < 50) {
-			weapon[w].setColor(sf::Color::Red);
+			weapon[w].setFillColor(sf::Color::Red);
 			canBuy = false;
 		}
 		if (!weaponTexture.loadFromFile("../images/other/arch.png"))
@@ -82,7 +82,7 @@ void WeaponMenuState::update() {
 	{
 		this->weapon[w].setString("Ax");
 		if (play.getHero()->getGoldCoins() < 10) {
-			this->weapon[w].setColor(sf::Color::Red);
+			this->weapon[w].setFillColor(sf::Color::Red);
 			this->canBuy = false;
 		}
 		if (!weaponTexture.loadFromFile("../images/other/ax.png"))
@@ -93,7 +93,7 @@ void WeaponMenuState::update() {
 	{
 		this->weapon[w].setString("Crossbow");
 		if (play.getHero()->getGoldCoins() < 75) {
-			this->weapon[w].setColor(sf::Color::Red);
+			this->weapon[w].setFillColor(sf::Color::Red);
 			this->canBuy = false;
 		}
 		if (!weaponTexture.loadFromFile("../images/other/crossbow.png"))
@@ -104,7 +104,7 @@ void WeaponMenuState::update() {
 	{
 		this->weapon[w].setString("Sword");
 		if (play.getHero()->getGoldCoins() < 15) {
-			this->weapon[w].setColor(sf::Color::Red);
+			this->weapon[w].setFillColor(sf::Color::Red);
 			this->canBuy = false;
 		}
 		if (!weaponTexture.loadFromFile("../images/other/sword.png"))

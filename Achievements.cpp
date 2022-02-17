@@ -34,7 +34,7 @@ void Achievements::setAnimation() {
 	if (!font.loadFromFile("../Font/TaylorGothic.otf"))
 		std::cout << "ERROR::ACHIEVEMENTS::CAN'T LOAD THE FONT";
 	text = sf::Text(" ", font, 30);
-	text.setColor(sf::Color::Blue);
+	text.setFillColor(sf::Color::Blue);
 }
 
 void Achievements::render(sf::RenderTarget* target) {

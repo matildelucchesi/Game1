@@ -39,7 +39,7 @@ void FAnimation::setFightLPAnimation(int LP) {
 		std::cout << "ERROR::FIGHT_ANIMATION::CAN'T LOAD THE FONT FILE";
 	//Lp Text
 	LPText = sf::Text(std::to_string(LP), font, 40);
-	LPText.setColor(sf::Color::White);
+	LPText.setFillColor(sf::Color::White);
 	LPText.setOutlineColor(sf::Color(75, 75, 75, 255));
 	LPText.setOutlineThickness(2);
 	LPText.setPosition(lpBubbleSpriteF.getGlobalBounds().left + (lpBubbleSpriteF.getGlobalBounds().width / 2.f) - (LPText.getGlobalBounds().width / 2.f), lpBubbleSpriteF.getGlobalBounds().top - (LPText.getGlobalBounds().height / 5.5f));

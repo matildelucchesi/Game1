@@ -38,7 +38,7 @@ void Animation::setFont() {
 }
 
 void Animation::setText(sf::Text& text) {
-	text.setColor(sf::Color::White);
+	text.setFillColor(sf::Color::White);
 	text.setOutlineColor(sf::Color(75, 75, 75, 255));
 	text.setOutlineThickness(2);
 }
@@ -119,7 +119,7 @@ void Animation::setLPBubble(sf::View& v, int LP) {
 	LPBubbleSprite.setPosition(v.getCenter().x + 335.f , v.getCenter().y - 280.f);
 	//text
 	LPText = sf::Text(std::to_string(LP), font, 30);
-	LPText.setColor(sf::Color::White);
+	LPText.setFillColor(sf::Color::White);
 	LPText.setOutlineColor(sf::Color(75, 75, 75, 255));
 	LPText.setOutlineThickness(2);
 	LPText.setPosition(v.getCenter().x + 335.f + (LPBubbleSprite.getGlobalBounds().width / 2.f) - (LPText.getGlobalBounds().width / 2.f), v.getCenter().y - 280.f);

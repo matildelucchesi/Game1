@@ -3,6 +3,15 @@
 Playable::Playable() {
 	if (!this->f.loadFromFile("../Font/TaylorGothic.otf"))
 		std::cout << "ERROR::PLAYABLE::CAN'T LOAD THE FONT";
+	//variable initialization
+	a = nullptr;
+	canMove = true;
+	heroClass = NULL;
+	heroRace = NULL;
+	live = true;
+	map = nullptr;
+	mex = true;
+	type = NULL;
 }
 
 Playable::~Playable() {
@@ -26,7 +35,7 @@ void Playable::setMessageBubble(sf::String& s) {
 	//text;
 	this->str = s;
 	text = sf::Text(this->str, f, 30);
-	text.setColor(sf::Color::Black);
+	text.setFillColor(sf::Color::Black);
 }
 
 void Playable::setMessageBubble(sf::View v, sf::String& s) {
@@ -38,7 +47,7 @@ void Playable::setMessageBubble(sf::View v, sf::String& s) {
 	//text
 	this->str = s;
 	text = sf::Text(" ", f, 30);
-	text.setColor(sf::Color::Black);
+	text.setFillColor(sf::Color::Black);
 	text.setPosition(v.getCenter().x - 430, v.getCenter().y + 100);
 }
 
