@@ -12,6 +12,7 @@ using namespace std;
 
 class Character {
 public:
+	
 	//Virtual Destructor
 	virtual ~Character() = 0;
 	//Character Features: setter and getter

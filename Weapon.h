@@ -12,8 +12,8 @@ public:
 	
 	virtual std::string getType() const = 0;
 	virtual int getCost()  const = 0;
-	//Virtual Destructor
-	virtual ~Weapon() = 0;
+	//Destructor
+	~Weapon() = default;
 };
 
 #endif 

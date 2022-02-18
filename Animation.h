@@ -56,7 +56,6 @@ private:
 	sf::Text LPText;
 	sf::Sprite LPBubbleSprite;
 	sf::Texture LPBubbleTexture;
-	int LP;
 	//bounding box
 	sf::FloatRect boundingBox;
 };

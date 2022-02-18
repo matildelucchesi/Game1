@@ -70,6 +70,8 @@ set(SOURCE_FILES	Animation.h
 					SecondLevelState.cpp
 					ThirdLevelState.h
 					ThirdLevelState.cpp
+					Potion.h
+					Potion.cpp
 					)
 
 find_package(SFML COMPONENTS system window graphics CONFIG REQUIRED )

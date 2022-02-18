@@ -28,9 +28,10 @@ InteractiveObject::InteractiveObject(TileMap* map,std::string name, bool empty, 
 	this->animation = ObjectAnimation::ObjectAnimation(this->isEmpty, tilesize, this->emptyT , this->notEmptyT, bBox, layerNumber);
 
 	//potion
-	if (isEmpty == false) {
-		potion = std::shared_ptr<Potion>(new Potion());
-	}
+	if (isEmpty == false)
+		this->potion = make_shared<Potion>();
+	else
+		this->potion = nullptr;
 
 }
 

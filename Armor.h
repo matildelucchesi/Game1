@@ -7,8 +7,8 @@ using namespace std;
 class Armor {
 public:
 	virtual std::string getType() const = 0;
-	//Virtual Destructor
-	virtual ~Armor() = 0;
+	//Destructor
+	~Armor() = default;
 };
 
 

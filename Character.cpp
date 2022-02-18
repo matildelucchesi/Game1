@@ -1,5 +1,26 @@
 #include "Character.h"
 
+/*Character::Character() {
+	strength = 0;
+	strengthModifier = 0;
+	dexterity = 0;
+	dexterityModifier = 0;
+	intelligence = 0;
+	intelligenceModifier = 0;
+	constitution = 0;
+	constitutionModifier = 0;
+	charisma = 0;
+	charismaModifier = 0;
+	wisdom = 0;
+	wisdomModifier = 0;
+	LP = 0;
+	level = 0;
+	initiative = 0;
+	posX = 0;
+	posY = 0;
+	race = NULL;
+}*/
+
 //Destructor
 Character::~Character() {
 

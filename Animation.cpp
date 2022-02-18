@@ -1,5 +1,4 @@
 #include "Animation.h"
-
 Animation::Animation(sf::Texture& texture) {
 	this->animationTimer.restart();
 	sprite = sf::Sprite(texture, sf::IntRect(64, 0, 64, 64));
