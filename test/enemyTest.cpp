@@ -1,5 +1,6 @@
 #include "C:/Users/Matilde/source/repos/Game/Enemy.h"
 #include <gtest/gtest.h>
+sf::RenderWindow* w = new sf::RenderWindow(sf::VideoMode(1100, 620), "Enemy", sf::Style::Close);
 
 Enemy* m = (new Enemy(0, 100, 0, 200.f, 300.f));
 
