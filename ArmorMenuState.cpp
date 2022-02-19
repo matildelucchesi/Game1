@@ -23,7 +23,7 @@ void ArmorMenuState::update() {
 	{
 		armor[a].setString("Padded Armor");
 		ca.setString("CA: "+ std::to_string(11));
-		if (this->play.getHero()->getGoldCoins() < 50) {
+		if (this->play.getHero()->getGoldCoins() < paddedArmorCost) {
 			armor[a].setFillColor(sf::Color::Red);
 			canBuy = false;
 		}
@@ -35,7 +35,7 @@ void ArmorMenuState::update() {
 	{
 		this->armor[a].setString("Half Armor");
 		ca.setString("CA: " + std::to_string(15));
-		if (this->play.getHero()->getGoldCoins() < 750) {
+		if (this->play.getHero()->getGoldCoins() < halfArmorCost) {
 			armor[a].setFillColor(sf::Color::Red);
 			canBuy = false;
 		}
@@ -48,7 +48,7 @@ void ArmorMenuState::update() {
 	{
 		this->armor[a].setString("Full Armor");
 		ca.setString("CA: " + std::to_string(18));
-		if (this->play.getHero()->getGoldCoins() < 1500) {
+		if (this->play.getHero()->getGoldCoins() < fullArmorCost) {
 			armor[a].setFillColor(sf::Color::Red);
 			canBuy = false;
 		}
@@ -106,7 +106,7 @@ GameState* ArmorMenuState::handleInput(sf::Event evnt) {
 
 void ArmorMenuState::initArmorText() {
 	for (int i = 0; i < NUMBER_OF_ARMOR; i++) {
-		armor[i] = sf::Text(" ", font, 80);
+		armor[i] = sf::Text(" ", font, menuTextSize);
 		GameState::setTextFeatures(this->armor[i]);
 		this->armor[i].setPosition(150.f, 300.f);
 	}
@@ -118,19 +118,19 @@ void ArmorMenuState::chooseArmor() {
 	case 0:
 	{
 		this->aType = "Padded Armor";
-		this->play.getHero()->setGoldCoins(this->play.getHero()->getGoldCoins() - 50);
+		this->play.getHero()->setGoldCoins(this->play.getHero()->getGoldCoins() - paddedArmorCost);
 		break;
 	}
 	case 1:
 	{
 		this->aType = "Half Armor";
-		this->play.getHero()->setGoldCoins(this->play.getHero()->getGoldCoins() - 750);
+		this->play.getHero()->setGoldCoins(this->play.getHero()->getGoldCoins() - halfArmorCost);
 		break;
 	}
 	case 2:
 	{
 		this->aType = "Full Armor";
-		this->play.getHero()->setGoldCoins(this->play.getHero()->getGoldCoins() - 1500);
+		this->play.getHero()->setGoldCoins(this->play.getHero()->getGoldCoins() - fullArmorCost);
 		break;
 	}
 	case 3:
@@ -142,7 +142,7 @@ void ArmorMenuState::chooseArmor() {
 }
 
 void ArmorMenuState::initCAText() {
-	ca = sf::Text(" ", font, 80);
+	ca = sf::Text(" ", font, menuTextSize);
 	GameState::setTextFeatures(this->ca);
 	ca.setPosition(680.f, 300.f);
 }
@@ -164,11 +164,11 @@ void ArmorMenuState::setBackground() {
 	leftArrow = sf::Sprite(left);
 	leftArrow.setPosition(5.f, 350.f);
 	//gold coins
-	coinsA = sf::Text("Gold coins: " + std::to_string(play.getHero()->getGoldCoins()), font, 50);
+	coinsA = sf::Text("Gold coins: " + std::to_string(play.getHero()->getGoldCoins()), font, menuTextSize - 30.f);
 	GameState::setTextFeatures(this->coinsA);
 	this->coinsA.setPosition(80.f, 130.f);
 	//title
-	titleA = sf::Text("Choose your armor", font, 80);
+	titleA = sf::Text("Choose your armor", font, menuTextSize);
 	GameState::setTextFeatures(this->titleA);
 	titleA.setPosition(80.f, 30.f);
 }

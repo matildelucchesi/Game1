@@ -6,7 +6,7 @@ RaceMenuState::RaceMenuState() : GameState() {
 	//hero
 	initHeroSprite();
 	//title
-	text = sf::Text("Choose the race of the hero", font, 80);
+	text = sf::Text("Choose the race of the hero", font, menuTextSize);
 	GameState::setTextFeatures(this->text);
 	text.setPosition(80.f, 30.f);
 	//Race

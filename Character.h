@@ -12,7 +12,6 @@ using namespace std;
 
 class Character {
 public:
-	
 	//Virtual Destructor
 	virtual ~Character() = 0;
 	//Character Features: setter and getter
@@ -70,6 +69,7 @@ public:
 	ConcreteArmor getArmor();
 	ConcreteArmorCreator armorFactory;
 	ConcreteWeapon wp;
+	ConcreteWeapon getWeapon();
 	ConcreteWeaponCreator weaponFactory;
 
 	//dice

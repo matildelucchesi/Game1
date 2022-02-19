@@ -392,3 +392,7 @@ void Hero::setDiceColor() {
 short Hero::getMovementState() {
 	return this->movingState;
 }
+
+int Hero::getNumPotion() const {
+	return this->numPotion;
+}

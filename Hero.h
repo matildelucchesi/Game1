@@ -77,6 +77,7 @@ public:
 	void addPotion();
 	int ppx;
 	int ppy;
+	int getNumPotion() const;
 	//take potion
 	void takePotion(InteractiveObject* obj);
 

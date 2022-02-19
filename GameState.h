@@ -16,6 +16,7 @@ using namespace std;
 #define viewY 620.f
 #define opacity 255
 #define gameTextSize 30
+#define menuTextSize 80
 
 class GameState {
 public:

@@ -53,7 +53,7 @@ GameState* WeaponMenuState::handleInput(sf::Event evnt) {
 
 void WeaponMenuState::initWeaponText() {
 	for (int i = 0; i < NUMBER_OF_WEAPONS; i++) {
-		weapon[i] = sf::Text(" ", font, 80);
+		weapon[i] = sf::Text(" ", font, menuTextSize);
 		GameState::setTextFeatures(this->weapon[i]);
 		weapon[i].setPosition(150.f, 300.f);
 	}
@@ -70,7 +70,7 @@ void WeaponMenuState::update() {
 	case 0:
 	{
 		weapon[w].setString("Arch");
-		if (play.getHero()->getGoldCoins() < 50) {
+		if (play.getHero()->getGoldCoins() < archCost) {
 			weapon[w].setFillColor(sf::Color::Red);
 			canBuy = false;
 		}
@@ -81,7 +81,7 @@ void WeaponMenuState::update() {
 	case 1:
 	{
 		this->weapon[w].setString("Ax");
-		if (play.getHero()->getGoldCoins() < 10) {
+		if (play.getHero()->getGoldCoins() < axCost) {
 			this->weapon[w].setFillColor(sf::Color::Red);
 			this->canBuy = false;
 		}
@@ -92,7 +92,7 @@ void WeaponMenuState::update() {
 	case 2:
 	{
 		this->weapon[w].setString("Crossbow");
-		if (play.getHero()->getGoldCoins() < 75) {
+		if (play.getHero()->getGoldCoins() < crossbowCost) {
 			this->weapon[w].setFillColor(sf::Color::Red);
 			this->canBuy = false;
 		}
@@ -103,7 +103,7 @@ void WeaponMenuState::update() {
 	case 3:
 	{
 		this->weapon[w].setString("Sword");
-		if (play.getHero()->getGoldCoins() < 15) {
+		if (play.getHero()->getGoldCoins() < swordCost) {
 			this->weapon[w].setFillColor(sf::Color::Red);
 			this->canBuy = false;
 		}
@@ -120,25 +120,25 @@ void WeaponMenuState::chooseWeapon() {
 	case 0 :
 	{
 		wType = "Arch";
-		play.getHero()->setGoldCoins(play.getHero()->getGoldCoins() - 50);
+		play.getHero()->setGoldCoins(play.getHero()->getGoldCoins() - archCost);
 		break;
 	}
 	case 1:
 	{
 		wType = "Ax";
-		play.getHero()->setGoldCoins(play.getHero()->getGoldCoins() - 10);
+		play.getHero()->setGoldCoins(play.getHero()->getGoldCoins() - axCost);
 		break;
 	}
 	case 2:
 	{
 		wType = "Crossbow";
-		play.getHero()->setGoldCoins(play.getHero()->getGoldCoins() - 75);
+		play.getHero()->setGoldCoins(play.getHero()->getGoldCoins() - crossbowCost);
 		break;
 	}
 	case 3:
 	{
 		wType = "Sword";
-		play.getHero()->setGoldCoins(play.getHero()->getGoldCoins() - 15);
+		play.getHero()->setGoldCoins(play.getHero()->getGoldCoins() - swordCost);
 		break;
 	}
 	}
@@ -161,11 +161,11 @@ void WeaponMenuState::setBackground() {
 	leftArrow = sf::Sprite(left);
 	leftArrow.setPosition(5.f, 350.f);
 	//title
-	title = sf::Text("Choose your weapon", font, 80);
+	title = sf::Text("Choose your weapon", font, menuTextSize);
 	GameState::setTextFeatures(this->title);
 	title.setPosition(80.f, 30.f);
 	//gold coins
-	coins = sf::Text("Gold coins: " + std::to_string(play.getHero()->getGoldCoins()), font, 50);
+	coins = sf::Text("Gold coins: " + std::to_string(play.getHero()->getGoldCoins()), font, menuTextSize - 30.f);
 	GameState::setTextFeatures(this->coins);
 	coins.setPosition(80.f, 130.f);
 }

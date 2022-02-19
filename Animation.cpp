@@ -4,6 +4,7 @@ Animation::Animation(sf::Texture& texture) {
 	sprite = sf::Sprite(texture, sf::IntRect(64, 0, 64, 64));
 	boundingBox = sprite.getGlobalBounds();
 	setFont();
+	movementSpeed = 0;
 }
 
 Animation::Animation(sf::Texture& texture, sf::IntRect& currentFrame, float movementSpeed, float x, float y) {

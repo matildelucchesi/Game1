@@ -6,22 +6,22 @@ ConcreteArmor ConcreteArmorCreator::createArmor(TYPE_OF_ARMOR type) {
 	switch (type) {
 	case TYPE_OF_ARMOR::FULL_ARMOR:
 	{
-		armor = ConcreteArmor(18, 1500, "Full Armor");
+		armor = ConcreteArmor(18, "Full Armor");
 		break;
 	}
 	case TYPE_OF_ARMOR::HALF_ARMOR: 
 	{
-		armor = ConcreteArmor(15, 750, "Half Armor");
+		armor = ConcreteArmor(15, "Half Armor");
 		break;
 	}
 	case TYPE_OF_ARMOR::PADDED_ARMOR:
 	{
-		armor = ConcreteArmor(11, 50, "Padded Armor");
+		armor = ConcreteArmor(11, "Padded Armor");
 		break;
 	}
 	case TYPE_OF_ARMOR::NONE:
 	{
-		armor = ConcreteArmor(10, 0, "None");
+		armor = ConcreteArmor(10, "None");
 		break;
 	}
 	}
