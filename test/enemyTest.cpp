@@ -17,6 +17,7 @@ TEST(Enemy, enemyConstructor) {
 	ASSERT_EQ(17, e->getWisdom());
 	ASSERT_EQ(19, e->getCharisma());
 	ASSERT_EQ("Half Armor", e->getTypeOfArmor());
+	ASSERT_EQ(750, e->getArmor().getCost());
 	ASSERT_EQ(15, e->getArmor().getCA());
 	ASSERT_EQ("Sword", e->getTypeOfWeapon());
 	EXPECT_TRUE(e->getInitiative() > 0);
