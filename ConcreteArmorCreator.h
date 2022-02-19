@@ -5,6 +5,15 @@
 #include <iostream>
 using namespace std;
 
+#define paddedArmorCost 50
+#define halfArmorCost 750
+#define fullArmorCost 900
+#define noneCost 0
+#define pCA 11
+#define hCA 15
+#define fCA 18
+#define nCA 10
+
 
 class ConcreteArmorCreator : public ArmorCreator {
 public:

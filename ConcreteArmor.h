@@ -18,7 +18,7 @@ public:
 	void setCA(int ca);
 	int getCA() const;
 	void setCost(int c);
-	int getCost() const;
+	int getCost() const override;
 
 private:
 	int CA;

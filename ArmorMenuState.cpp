@@ -22,7 +22,7 @@ void ArmorMenuState::update() {
 	case 0:
 	{
 		armor[a].setString("Padded Armor");
-		ca.setString("CA: "+ std::to_string(11));
+		ca.setString("CA: "+ std::to_string(pCA));
 		if (this->play.getHero()->getGoldCoins() < paddedArmorCost) {
 			armor[a].setFillColor(sf::Color::Red);
 			canBuy = false;
@@ -34,7 +34,7 @@ void ArmorMenuState::update() {
 	case 1:
 	{
 		this->armor[a].setString("Half Armor");
-		ca.setString("CA: " + std::to_string(15));
+		ca.setString("CA: " + std::to_string(hCA));
 		if (this->play.getHero()->getGoldCoins() < halfArmorCost) {
 			armor[a].setFillColor(sf::Color::Red);
 			canBuy = false;
@@ -47,7 +47,7 @@ void ArmorMenuState::update() {
 	case 2:
 	{
 		this->armor[a].setString("Full Armor");
-		ca.setString("CA: " + std::to_string(18));
+		ca.setString("CA: " + std::to_string(fCA));
 		if (this->play.getHero()->getGoldCoins() < fullArmorCost) {
 			armor[a].setFillColor(sf::Color::Red);
 			canBuy = false;
@@ -59,7 +59,7 @@ void ArmorMenuState::update() {
 	case 3:
 	{
 		this->armor[a].setString("None");
-		ca.setString("CA: " + std::to_string(10));
+		ca.setString("CA: " + std::to_string(nCA));
 		this->canBuy = true;
 		break;
 	}

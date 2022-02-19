@@ -6,9 +6,6 @@
 #include "PlayingState.h"
 
 #define NUMBER_OF_ARMOR 4
-#define paddedArmorCost 50
-#define halfArmorCost 750
-#define fullArmorCost 900
 
 class PlayingState;
 
