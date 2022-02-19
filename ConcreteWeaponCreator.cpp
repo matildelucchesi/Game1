@@ -6,23 +6,23 @@ ConcreteWeapon ConcreteWeaponCreator::createWeapon(TYPE_OF_WEAPON type) {
 	switch (type) {
 	case TYPE_OF_WEAPON::AX:
 	{
-		weapon = ConcreteWeapon(10, "Ax");
+		weapon = ConcreteWeapon(archCost, "Ax");
 		break;
 
 	}
 	case TYPE_OF_WEAPON::SWORD: 
 	{
-		weapon = ConcreteWeapon(15, "Sword");
+		weapon = ConcreteWeapon(swordCost, "Sword");
 		break;
 	}
 	case TYPE_OF_WEAPON::CROSSBOW: 
 	{
-		weapon = ConcreteWeapon(75, "Crossbow");
+		weapon = ConcreteWeapon(crossbowCost, "Crossbow");
 		break;
 	}
 	case TYPE_OF_WEAPON::ARCH: 
 	{
-		weapon = ConcreteWeapon(50, "Arch");
+		weapon = ConcreteWeapon(archCost, "Arch");
 		break;
 	}
 	}

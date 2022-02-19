@@ -8,10 +8,6 @@
 #include <memory>
 
 #define NUMBER_OF_WEAPONS 4
-#define archCost 50
-#define axCost 10
-#define crossbowCost 75
-#define swordCost 15
 
 enum class WEAPON{ARCH, AX, CROSSBOW, SWORD};
 

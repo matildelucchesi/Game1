@@ -4,6 +4,11 @@
 #include "WeaponCreator.h"
 #include "ConcreteWeapon.h"
 
+#define archCost 50
+#define axCost 10
+#define crossbowCost 75
+#define swordCost 15
+
 class ConcreteWeaponCreator : public WeaponCreator {
 public:
 	//Constructor & Destructor
