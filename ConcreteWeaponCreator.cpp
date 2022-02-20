@@ -6,7 +6,7 @@ ConcreteWeapon ConcreteWeaponCreator::createWeapon(TYPE_OF_WEAPON type) {
 	switch (type) {
 	case TYPE_OF_WEAPON::AX:
 	{
-		weapon = ConcreteWeapon(archCost, "Ax");
+		weapon = ConcreteWeapon(axCost, "Ax");
 		break;
 
 	}
