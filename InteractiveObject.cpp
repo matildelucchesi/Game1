@@ -1,5 +1,12 @@
 #include "InteractiveObject.h"
 
+InteractiveObject::InteractiveObject(std::string name, bool empty) {
+	isVisited = false;
+	isOpen = true;
+	isEmpty = empty;
+	n = name;
+}
+
 InteractiveObject::InteractiveObject(TileMap* map,std::string name, bool empty, sf::Vector2f tilesize, sf::FloatRect* bBox, int layerNumber) {
 	isVisited = false;
 	isOpen = false;

@@ -19,6 +19,7 @@ class TileMap;
 class InteractiveObject : public Observable {
 public:
 	//constructor & destructor
+	InteractiveObject(std::string name, bool empty);
 	InteractiveObject(TileMap* map, std::string name, bool empty, sf::Vector2f tilesize, sf::FloatRect* bBox, int layerNumber);
 	~InteractiveObject() = default;
 

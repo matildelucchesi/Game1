@@ -23,6 +23,9 @@ public:
 	void update(sf::View v);
 	bool getAchieve() const;
 	void setAchieve(bool a);
+	//Count
+	int getCountS() const;
+	int getCountT() const;
 
 private:
 	int countT;

@@ -54,3 +54,13 @@ bool Achievements::getAchieve() const{
 void Achievements::setAchieve(bool a){
 	this->achieve = a;
 }
+
+//Count
+
+int Achievements::getCountS() const {
+	return this->countS;
+}
+
+int Achievements::getCountT() const {
+	return this->countT;
+}

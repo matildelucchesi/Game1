@@ -9,7 +9,13 @@ find_package(SFML 2 COMPONENTS system window graphics REQUIRED )
 find_package(tinyxml2 CONFIG REQUIRED)
 
 
-set(TEST_SOURCE_FILES runTests.cpp heroTest.cpp enemyTest.cpp armorTest.cpp weaponTest.cpp fightTest.cpp)
+set(TEST_SOURCE_FILES	runTests.cpp 
+						heroTest.cpp 
+						enemyTest.cpp 
+						armorTest.cpp 
+						weaponTest.cpp 
+						fightTest.cpp
+						achievementTest.cpp)
 
 enable_testing()
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
