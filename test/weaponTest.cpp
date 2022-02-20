@@ -1,33 +1,33 @@
 #include <gtest/gtest.h>
-#include "C:/Users/Matilde/source/repos/Game/ConcreteWeapon.h"
-#include "C:/Users/Matilde/source/repos/Game/ConcreteWeaponCreator.h"
-#include "C:/Users/Matilde/source/repos/Game/WeaponCreator.h"
+#include "../ConcreteWeapon.h"
+#include "../ConcreteWeaponCreator.h"
+#include "../WeaponCreator.h"
 
-ConcreteWeaponCreator* w = new ConcreteWeaponCreator();
-std::unique_ptr<ConcreteWeapon> wp = w->createWeapon(WeaponCreator::TYPE_OF_WEAPON::AX);
+ConcreteWeaponCreator weaponFactory;
+ConcreteWeapon a = weaponFactory.createWeapon(ConcreteWeaponCreator::TYPE_OF_WEAPON::AX);
 
-TEST(ConcreteWeapon, AxConstructor) {
-	ASSERT_EQ(10, wp->getCost());
-	EXPECT_TRUE(wp->getType() == "Ax");
+TEST(ConcreteWeapon, Ax) {
+	ASSERT_EQ("Ax", a.getType());
+	ASSERT_EQ(10, a.getCost());
 }
 
-std::unique_ptr<ConcreteWeapon> wd = w->createWeapon(WeaponCreator::TYPE_OF_WEAPON::SWORD);
+ConcreteWeapon ar = weaponFactory.createWeapon(ConcreteWeaponCreator::TYPE_OF_WEAPON::ARCH);
 
-TEST(ConcreteWeapon, SwordConstructor) {
-	ASSERT_EQ(15, wd->getCost());
-	EXPECT_TRUE(wd->getType() == "Sword");
+TEST(ConcreteWeapon, Arch) {
+	ASSERT_EQ("Arch", ar.getType());
+	ASSERT_EQ(50, ar.getCost());
 }
 
-std::unique_ptr<ConcreteWeapon> wc = w->createWeapon(WeaponCreator::TYPE_OF_WEAPON::CROSSBOW);
+ConcreteWeapon s = weaponFactory.createWeapon(ConcreteWeaponCreator::TYPE_OF_WEAPON::SWORD);
 
-TEST(ConcreteWeapon, CrossbowConstructor) {
-	ASSERT_EQ(75, wc->getCost());
-	EXPECT_TRUE(wc->getType() == "Crossbow");
+TEST(ConcreteWeapon, Sword) {
+	ASSERT_EQ("Sword", s.getType());
+	ASSERT_EQ(15, s.getCost());
 }
 
-std::unique_ptr<ConcreteWeapon> wa = w->createWeapon(WeaponCreator::TYPE_OF_WEAPON::ARCH);
+ConcreteWeapon c = weaponFactory.createWeapon(ConcreteWeaponCreator::TYPE_OF_WEAPON::CROSSBOW);
 
-TEST(ConcreteWeapon, ArchConstructor) {
-	ASSERT_EQ(50, wa->getCost());
-	EXPECT_TRUE(wa->getType() == "Arch");
+TEST(ConcreteWeapon, Crossbow) {
+	ASSERT_EQ("Crossbow", c.getType());
+	ASSERT_EQ(75, c.getCost());
 }
