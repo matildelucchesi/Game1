@@ -165,7 +165,7 @@ void WeaponMenuState::setBackground() {
 	GameState::setTextFeatures(this->title);
 	title.setPosition(80.f, 30.f);
 	//gold coins
-	coins = sf::Text("Gold coins: " + std::to_string(play.getHero()->getGoldCoins()), font, menuTextSize - 30.f);
+	coins = sf::Text("Gold coins: " + std::to_string(play.getHero()->getGoldCoins()), font, menuTextSize - 30);
 	GameState::setTextFeatures(this->coins);
 	coins.setPosition(80.f, 130.f);
 }

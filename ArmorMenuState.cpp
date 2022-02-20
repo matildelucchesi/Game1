@@ -164,7 +164,7 @@ void ArmorMenuState::setBackground() {
 	leftArrow = sf::Sprite(left);
 	leftArrow.setPosition(5.f, 350.f);
 	//gold coins
-	coinsA = sf::Text("Gold coins: " + std::to_string(play.getHero()->getGoldCoins()), font, menuTextSize - 30.f);
+	coinsA = sf::Text("Gold coins: " + std::to_string(play.getHero()->getGoldCoins()), font, menuTextSize - 30);
 	GameState::setTextFeatures(this->coinsA);
 	this->coinsA.setPosition(80.f, 130.f);
 	//title
