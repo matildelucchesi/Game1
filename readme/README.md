@@ -1,6 +1,7 @@
 ## Game1
 
 Choose hero features
+
 ![Choose hero features gif](/readme/Choose_hero_features.gif)
 
 Enter in the castle:
