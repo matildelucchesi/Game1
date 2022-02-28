@@ -1,3 +1,3 @@
 ## Game1
 
-readme/Choose_hero_features.gif
+![Choose hero features gif](/readme/Choose_hero_features.gif)
