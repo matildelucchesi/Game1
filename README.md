@@ -6,12 +6,12 @@ Choose hero features:
 
 Enter in the castle:
 
-![Enter in the castle](/../readme/Enter_in_the_castle.gif)
+![Enter in the castle](/readme/Enter_in_the_castle.gif)
 
 Interaction with objects:
 
-![Interaction with objects](/../readme/Interaction_with_object.gif)
+![Interaction with objects](/readme/Interaction_with_object.gif)
 
 Fight:
 
-![Fight](/../readme/Fight.gif)
+![Fight](/readme/Fight.gif)
