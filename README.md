@@ -2,7 +2,7 @@
 
 **Progetto universitario realizzato nel 2022**, sviluppato in C++ con SFML. È un gioco di ruolo 2D dedicato alla creazione di un personaggio, all'esplorazione di un castello e ai combattimenti a turni.
 
-Il repository conserva il progetto a scopo didattico e dimostrativo. Il codice e le risorse sono stati riorganizzati per rendere più chiara la struttura e facilitare la compilazione, mantenendo le meccaniche originali.
+Il repository conserva il progetto a scopo didattico e dimostrativo.
 
 ## Il gioco
 
