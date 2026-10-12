@@ -1,4 +1,4 @@
-#include "C:/Users/Matilde/source/repos/Game/Enemy.h"
+#include "characters/Enemy.h"
 #include <gtest/gtest.h>
 sf::RenderWindow* w = new sf::RenderWindow(sf::VideoMode(1100, 620), "Enemy", sf::Style::Close);
 

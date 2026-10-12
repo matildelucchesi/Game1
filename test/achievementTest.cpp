@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "../Achievements.h"
-#include "../InteractiveObject.h"
-#include "../Hero.h"
+#include "achievements/Achievements.h"
+#include "world/InteractiveObject.h"
+#include "characters/Hero.h"
 
 //statues
 

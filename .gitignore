@@ -1,0 +1,21 @@
+# Generated builds and local IDE files
+/build/
+/out/
+/.vs/
+/.idea/
+/.vscode/
+/CMakeUserPresets.json
+*.user
+*.suo
+*.obj
+*.o
+*.pdb
+*.ilk
+*.exe
+*.dll
+*.lib
+*.a
+*.so
+*.dylib
+.DS_Store
+Thumbs.db

@@ -1,10 +1,10 @@
-#include "../Hero.h"
+#include "characters/Hero.h"
 #include <gtest/gtest.h>
 
 sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(1100, 620), "Hero", sf::Style::Close);
 
 Hero* h = (new Hero(2, 3));
-TileMap* m = new TileMap("../MapXML/FLMap.xml");
+TileMap* m = new TileMap("assets/mapXML/FLMap.xml");
 InteractiveObject* o;
 
 TEST(Hero, heroConstructor) {

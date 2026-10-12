@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "../Hero.h"
-#include "../Enemy.h"
+#include "characters/Hero.h"
+#include "characters/Enemy.h"
 
 Hero* hero = new Hero(1, 2);
 Enemy* enemy = new Enemy(0, 100, 0, 200.f, 300.f);

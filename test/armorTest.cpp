@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "../ConcreteArmor.h"
-#include "../ConcreteArmorCreator.h"
-#include "../ArmorCreator.h"
+#include "items/ConcreteArmor.h"
+#include "items/ConcreteArmorCreator.h"
+#include "items/ArmorCreator.h"
 
 ConcreteArmorCreator armorFactory;
 ConcreteArmor p = armorFactory.createArmor(ConcreteArmorCreator::TYPE_OF_ARMOR::PADDED_ARMOR);

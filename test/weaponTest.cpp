@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "../ConcreteWeapon.h"
-#include "../ConcreteWeaponCreator.h"
-#include "../WeaponCreator.h"
+#include "items/ConcreteWeapon.h"
+#include "items/ConcreteWeaponCreator.h"
+#include "items/WeaponCreator.h"
 
 ConcreteWeaponCreator weaponFactory;
 ConcreteWeapon a = weaponFactory.createWeapon(ConcreteWeaponCreator::TYPE_OF_WEAPON::AX);
