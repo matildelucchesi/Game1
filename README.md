@@ -1,31 +1,42 @@
-<p align="center">
-  <img src="docs/images/castle-banner.svg" alt="Castle: un gioco di ruolo in C++ e SFML, progetto universitario del 2022" width="100%">
-</p>
+<a id="inizio"></a>
 
-<h1 align="center">Castle</h1>
+![Castle - Esplorazione, dadi e combattimenti a turni](docs/images/castle-banner.svg)
 
-<p align="center">
-  <strong>Esplora il castello. Affronta i suoi guardiani. Salva la principessa.</strong><br>
-  Gioco di ruolo 2D in C++ e SFML &middot; Progetto universitario del <strong>2022</strong>
-</p>
+![Archivio della gilda - Progetto universitario del 2022](docs/images/theme/edition.svg)
+
+<p align="center"><strong>Entra nel castello di Ronkahudroth. Affronta i suoi guardiani. Libera Metalyn.</strong></p>
 
 <p align="center">
-  <a href="#la-missione">La missione</a> &nbsp;&middot;&nbsp;
-  <a href="#cronache-dal-castello">Anteprima</a> &nbsp;&middot;&nbsp;
-  <a href="#preparare-la-spedizione">Installazione</a> &nbsp;&middot;&nbsp;
-  <a href="#comandi-di-gioco">Comandi</a> &nbsp;&middot;&nbsp;
-  <a href="#prove-della-gilda">Test</a>
+  <a href="#la-missione">I. La missione</a> &nbsp; / &nbsp;
+  <a href="#cronache-dal-castello">II. Le cronache</a> &nbsp; / &nbsp;
+  <a href="#la-mappa-del-progetto">III. La fortezza</a><br>
+  <a href="#preparare-la-spedizione">IV. I preparativi</a> &nbsp; / &nbsp;
+  <a href="#la-forgia-compilazione-su-windows">V. La forgia</a> &nbsp; / &nbsp;
+  <a href="#compilazione-con-dipendenze-gia-installate">VI. La seconda via</a><br>
+  <a href="#comandi-di-gioco">VII. I comandi</a> &nbsp; / &nbsp;
+  <a href="#prove-della-gilda">VIII. Le prove</a> &nbsp; / &nbsp;
+  <a href="#inventario-delle-risorse-e-stato-del-progetto">IX. L'inventario</a><br>
+  <a href="#ostacoli-lungo-il-cammino">X. Le insidie</a> &nbsp; / &nbsp;
+  <a href="#crediti-e-licenze">XI. Gli artefici</a> &nbsp; / &nbsp;
+  <a href="#note-per-la-pubblicazione-su-github">XII. Le cronache su GitHub</a>
 </p>
 
----
+> **Dal registro del 2022**<br>
+> Progetto universitario in C++ e SFML, conservato a scopo didattico e dimostrativo. Un gioco di ruolo 2D tra esplorazione, creazione del personaggio e combattimenti a turni.
 
-**Progetto universitario realizzato nel 2022**, sviluppato in C++ con SFML. Il repository conserva il gioco a scopo didattico e dimostrativo: creazione del personaggio, esplorazione e combattimenti a turni.
+<p align="right"><a href="#inizio">Torna all’indice ↑</a></p>
 
-## La missione
+![Separatore](docs/images/theme/divider.svg)
+
+<a id="la-missione"></a>
+
+## ![I - Il giuramento](docs/images/theme/chapter-01.svg)
 
 Il protagonista deve entrare nel castello del mindflayer Ronkahudroth e salvare la principessa Metalyn. Prima di iniziare l'esplorazione, il giocatore sceglie razza, classe, arma e armatura del proprio eroe.
 
-### La tua compagnia, il tuo equipaggiamento
+![Eroi, guardiani ed equipaggiamento](docs/images/theme/bestiary.svg)
+
+### Scegli da che parte scrivere la leggenda
 
 | Il tuo eroe | Il castello | Le sfide |
 | --- | --- | --- |
@@ -44,7 +55,13 @@ Le funzionalità presenti nel codice comprendono:
 
 L'interfaccia e i messaggi del gioco sono in inglese.
 
-## Cronache dal castello
+<p align="right"><a href="#inizio">Torna all’indice ↑</a></p>
+
+![Separatore](docs/images/theme/divider.svg)
+
+<a id="cronache-dal-castello"></a>
+
+## ![II - Cronache dal castello](docs/images/theme/chapter-02.svg)
 
 ### I. Scegli il tuo eroe
 
@@ -62,7 +79,13 @@ L'interfaccia e i messaggi del gioco sono in inglese.
 
 ![Combattimento](docs/images/Fight.gif)
 
-## La mappa del progetto
+<p align="right"><a href="#inizio">Torna all’indice ↑</a></p>
+
+![Separatore](docs/images/theme/divider.svg)
+
+<a id="la-mappa-del-progetto"></a>
+
+## ![III - La pianta della fortezza](docs/images/theme/chapter-03.svg)
 
 ```text
 Game/
@@ -95,7 +118,13 @@ Header e implementazioni sono affiancati per responsabilità. Gli include del pr
 
 La libreria statica `core` contiene il codice condiviso dal gioco e dai test. L'eseguibile `Game` utilizza `src/main.cpp`; l'eseguibile `runAllTests` esegue la suite GoogleTest. Gli stati derivano da `GameState`; `Playable` raccoglie funzionalità comuni all'esplorazione. I creator costruiscono armi e armature, mentre `Observable` e `Observer` gestiscono le notifiche degli achievement.
 
-## Preparare la spedizione
+<p align="right"><a href="#inizio">Torna all’indice ↑</a></p>
+
+![Separatore](docs/images/theme/divider.svg)
+
+<a id="preparare-la-spedizione"></a>
+
+## ![IV - Preparare la spedizione](docs/images/theme/chapter-04.svg)
 
 Requisiti e installazione per entrare nel castello.
 
@@ -119,11 +148,17 @@ git submodule update --init --recursive
 
 Questo comando recupera GoogleTest e vcpkg nelle revisioni registrate dal repository. Un archivio ZIP di GitHub non contiene il codice dei submodule: per seguire questa procedura utilizzare un clone Git.
 
-## La forgia: compilazione su Windows
+<p align="right"><a href="#inizio">Torna all’indice ↑</a></p>
+
+![Separatore](docs/images/theme/divider.svg)
+
+<a id="la-forgia-compilazione-su-windows"></a>
+
+## ![V - La forgia](docs/images/theme/chapter-05.svg)
 
 Installare Visual Studio o i Build Tools con il carico di lavoro **Sviluppo di applicazioni desktop con C++**, un Windows SDK e CMake. Eseguire i comandi seguenti in PowerShell dalla radice del repository.
 
-### 1. Preparare le dipendenze
+### I / Preparare le dipendenze
 
 ```powershell
 .\vcpkg\bootstrap-vcpkg.bat
@@ -132,7 +167,7 @@ Installare Visual Studio o i Build Tools con il carico di lavoro **Sviluppo di a
 
 Mantenere coerenti l'architettura del compilatore e il triplet vcpkg. Questa procedura usa `x64-windows`.
 
-### 2. Configurare e compilare
+### II / Configurare e compilare
 
 ```powershell
 cmake -S . -B build -A x64 -DCMAKE_TOOLCHAIN_FILE=vcpkg/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows -DBUILD_TESTING=ON
@@ -145,7 +180,7 @@ Per compilare soltanto il gioco, sostituire `-DBUILD_TESTING=ON` con `-DBUILD_TE
 
 Il toolchain e il generatore vanno scelti alla prima configurazione. Se si cambia toolchain, generatore o architettura, utilizzare una nuova directory, per esempio `build-x64`, al posto di `build`.
 
-### 3. Avviare il gioco
+### III / Avviare il gioco
 
 Con il generatore Visual Studio, dalla radice del repository:
 
@@ -155,11 +190,20 @@ Con il generatore Visual Studio, dalla radice del repository:
 
 Con Ninja l'eseguibile si trova normalmente in `build/Game.exe`.
 
-**La directory di lavoro deve essere la radice del repository**, dove si trova `assets/`. Avviare il programma dal terminale come indicato, evitando di cambiare directory nella cartella dell'eseguibile. Il target CMake configura anche questa directory per il debugger di Visual Studio.
+> **Il punto di partenza**<br>
+> La directory di lavoro deve essere la radice del repository, dove si trova `assets/`.
+
+ Avviare il programma dal terminale come indicato, evitando di cambiare directory nella cartella dell'eseguibile. Il target CMake configura anche questa directory per il debugger di Visual Studio.
 
 Per una build Release, usare `--config Release` e avviare `build/Release/Game.exe`.
 
-## Compilazione con dipendenze già installate
+<p align="right"><a href="#inizio">Torna all’indice ↑</a></p>
+
+![Separatore](docs/images/theme/divider.svg)
+
+<a id="compilazione-con-dipendenze-gia-installate"></a>
+
+## ![VI - Una seconda via](docs/images/theme/chapter-06.svg)
 
 Se SFML 2 e tinyxml2 sono già disponibili al compilatore, vcpkg è facoltativo:
 
@@ -172,30 +216,42 @@ Se CMake non trova le librerie, aggiungere `-DCMAKE_PREFIX_PATH=<directory-di-in
 
 Con un generatore a configurazione singola impostare anche `-DCMAKE_BUILD_TYPE=Debug`; il parametro `--config` serve ai generatori con più configurazioni. Su Linux l'eseguibile si trova normalmente in `build/Game` e va avviato dalla radice con `./build/Game`. L'esecuzione su piattaforme diverse da Windows non è stata verificata in questa riorganizzazione.
 
-## Comandi di gioco
+<p align="right"><a href="#inizio">Torna all’indice ↑</a></p>
+
+![Separatore](docs/images/theme/divider.svg)
+
+<a id="comandi-di-gioco"></a>
+
+## ![VII - Il manuale dell’avventuriero](docs/images/theme/chapter-07.svg)
 
 I comandi dipendono dalla schermata corrente; i messaggi a video indicano l'azione disponibile.
 
 | Contesto | Tasto | Azione |
 | --- | --- | --- |
-| Schermata iniziale | Invio | Inizia il gioco |
+| Schermata iniziale | <kbd>Invio</kbd> | Inizia il gioco |
 | Selezione di razza, arma o armatura | Frecce sinistra/destra | Scorre le opzioni |
 | Selezione della classe | Frecce su/giù | Scorre le classi |
-| Menu di selezione | Invio | Conferma la scelta |
+| Menu di selezione | <kbd>Invio</kbd> | Conferma la scelta |
 | Esplorazione | Frecce direzionali | Muove il personaggio |
-| Area iniziale | W | Apre la scelta dell'equipaggiamento |
-| Esplorazione | A | Interagisce, entra nel castello, usa le scale o avvia un combattimento quando richiesto |
-| Statue e tesori | S | Raccoglie la pozione o chiude il messaggio dopo l'apertura |
-| Esplorazione | Invio | Apre pausa e inventario |
+| Area iniziale | <kbd>W</kbd> | Apre la scelta dell'equipaggiamento |
+| Esplorazione | <kbd>A</kbd> | Interagisce, entra nel castello, usa le scale o avvia un combattimento quando richiesto |
+| Statue e tesori | <kbd>S</kbd> | Raccoglie la pozione o chiude il messaggio dopo l'apertura |
+| Esplorazione | <kbd>Invio</kbd> | Apre pausa e inventario |
 | Inventario | Frecce direzionali | Seleziona una pozione |
-| Inventario | Invio | Usa la pozione selezionata |
-| Pausa | Backspace | Torna al gioco |
-| Combattimento | A | Avvia o conclude lo scontro quando richiesto |
-| Turno dell'eroe | S | Esegue l'attacco dell'eroe |
-| Turno del nemico | D | Esegue l'attacco del nemico |
-| Notifica di achievement | Z | Chiude la notifica |
+| Inventario | <kbd>Invio</kbd> | Usa la pozione selezionata |
+| Pausa | <kbd>Backspace</kbd> | Torna al gioco |
+| Combattimento | <kbd>A</kbd> | Avvia o conclude lo scontro quando richiesto |
+| Turno dell'eroe | <kbd>S</kbd> | Esegue l'attacco dell'eroe |
+| Turno del nemico | <kbd>D</kbd> | Esegue l'attacco del nemico |
+| Notifica di achievement | <kbd>Z</kbd> | Chiude la notifica |
 
-## Prove della gilda
+<p align="right"><a href="#inizio">Torna all’indice ↑</a></p>
+
+![Separatore](docs/images/theme/divider.svg)
+
+<a id="prove-della-gilda"></a>
+
+## ![VIII - Prove della gilda](docs/images/theme/chapter-08.svg)
 
 ### Eseguire i test
 
@@ -217,13 +273,20 @@ Con un generatore a configurazione singola, il percorso è normalmente `build/te
 
 Alcuni test creano finestre SFML e caricano mappe e texture già durante l'inizializzazione: richiedono le risorse in `assets/` e una sessione grafica, quindi la suite non è predisposta per un ambiente senza display.
 
-## Inventario delle risorse e stato del progetto
+<p align="right"><a href="#inizio">Torna all’indice ↑</a></p>
+
+![Separatore](docs/images/theme/divider.svg)
+
+<a id="inventario-delle-risorse-e-stato-del-progetto"></a>
+
+## ![IX - L’inventario](docs/images/theme/chapter-09.svg)
 
 In `assets/` sono presenti **47 immagini**, le risorse del font TaylorGothic e **quattro mappe XML**: `PLMap.xml`, `FLMap.xml`, `SLMap.xml` e `TLMap.xml`. Le risorse sono state recuperate dalla precedente cartella `out/build/` e collocate fuori dalle directory di compilazione.
 
 I percorsi nel codice e nelle mappe XML iniziano con `assets/` e vengono risolti rispetto alla directory di lavoro. Conservare i nomi e le maiuscole dei file, soprattutto su filesystem sensibili alle maiuscole.
 
-Mancano ancora due immagini referenziate dal codice:
+> **Due oggetti mancano all’inventario**<br>
+> Le risorse recuperate non comprendono le due immagini seguenti, ancora richieste dal codice:
 
 | File | Utilizzo |
 | --- | --- |
@@ -234,7 +297,13 @@ Per completare le risorse, ripristinare i file originali in questi percorsi. La 
 
 Durante la riorganizzazione sono stati verificati gli include interni e i riferimenti alle risorse disponibili. **La compilazione e l'esecuzione completa non sono state verificate**: nell'ambiente usato per la riorganizzazione CMake non ha trovato il package SFML. Le GIF mostrano il funzionamento del progetto originale e non certificano una nuova esecuzione della versione riorganizzata.
 
-## Ostacoli lungo il cammino
+<p align="right"><a href="#inizio">Torna all’indice ↑</a></p>
+
+![Separatore](docs/images/theme/divider.svg)
+
+<a id="ostacoli-lungo-il-cammino"></a>
+
+## ![X - La via tra le insidie](docs/images/theme/chapter-10.svg)
 
 | Problema | Verifica o soluzione |
 | --- | --- |
@@ -246,14 +315,31 @@ Durante la riorganizzazione sono stati verificati gli include interni e i riferi
 | Non vengono caricati font, texture o mappe | Avviare dalla radice del repository e controllare i percorsi in `assets/`; le due immagini elencate sopra sono ancora mancanti. |
 | I test non funzionano su un server senza display | Eseguire la suite in una sessione grafica compatibile con SFML. |
 
-## Crediti e licenze
+<p align="right"><a href="#inizio">Torna all’indice ↑</a></p>
+
+![Separatore](docs/images/theme/divider.svg)
+
+<a id="crediti-e-licenze"></a>
+
+## ![XI - Gli artefici](docs/images/theme/chapter-11.svg)
 
 Il font TaylorGothic è attribuito a **Thor Christopher Arisland**. Le condizioni originali conservate in [assets/Font/TaylorGothic.txt](assets/Font/TaylorGothic.txt) indicano uso personale gratuito e una licenza da acquistare per l'uso commerciale.
 
 Le dipendenze SFML, tinyxml2, GoogleTest e vcpkg mantengono le rispettive licenze. Non è presente un file `LICENSE` per il codice del progetto. Provenienza e condizioni di utilizzo delle immagini devono ancora essere documentate; il contesto universitario non costituisce una licenza delle risorse.
 
-## Note per la pubblicazione su GitHub
+<p align="right"><a href="#inizio">Torna all’indice ↑</a></p>
+
+![Separatore](docs/images/theme/divider.svg)
+
+<a id="note-per-la-pubblicazione-su-github"></a>
+
+## ![XII - Consegnare le cronache](docs/images/theme/chapter-12.svg)
 
 Le cartelle da versionare comprendono `src/`, `assets/`, `test/` e `docs/`, insieme ai file di configurazione. `test/lib` e `vcpkg` sono submodule: Git registra i riferimenti ai repository delle dipendenze.
 
 `.gitignore` esclude `build/`, `out/`, `.vs/`, binari e impostazioni locali dell'IDE. Le risorse da pubblicare sono quelle in `assets/`; le copie rimaste in `out/build/` non sono necessarie nel repository. L'esclusione dei file generati dai nuovi commit non li rimuove dalla cronologia Git esistente.
+
+
+<p align="right"><a href="#inizio">Torna all’indice ↑</a></p>
+
+![Fine delle cronache - Castle, 2022](docs/images/theme/footer.svg)
