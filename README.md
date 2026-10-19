@@ -1,12 +1,36 @@
-# Game — Castle
+<p align="center">
+  <img src="docs/images/castle-banner.svg" alt="Castle: un gioco di ruolo in C++ e SFML, progetto universitario del 2022" width="100%">
+</p>
 
-**Progetto universitario realizzato nel 2022**, sviluppato in C++ con SFML. È un gioco di ruolo 2D dedicato alla creazione di un personaggio, all'esplorazione di un castello e ai combattimenti a turni.
+<h1 align="center">Castle</h1>
 
-Il repository conserva il progetto a scopo didattico e dimostrativo.
+<p align="center">
+  <strong>Esplora il castello. Affronta i suoi guardiani. Salva la principessa.</strong><br>
+  Gioco di ruolo 2D in C++ e SFML &middot; Progetto universitario del <strong>2022</strong>
+</p>
 
-## Il gioco
+<p align="center">
+  <a href="#la-missione">La missione</a> &nbsp;&middot;&nbsp;
+  <a href="#cronache-dal-castello">Anteprima</a> &nbsp;&middot;&nbsp;
+  <a href="#preparare-la-spedizione">Installazione</a> &nbsp;&middot;&nbsp;
+  <a href="#comandi-di-gioco">Comandi</a> &nbsp;&middot;&nbsp;
+  <a href="#prove-della-gilda">Test</a>
+</p>
+
+---
+
+**Progetto universitario realizzato nel 2022**, sviluppato in C++ con SFML. Il repository conserva il gioco a scopo didattico e dimostrativo: creazione del personaggio, esplorazione e combattimenti a turni.
+
+## La missione
 
 Il protagonista deve entrare nel castello del mindflayer Ronkahudroth e salvare la principessa Metalyn. Prima di iniziare l'esplorazione, il giocatore sceglie razza, classe, arma e armatura del proprio eroe.
+
+### La tua compagnia, il tuo equipaggiamento
+
+| Il tuo eroe | Il castello | Le sfide |
+| --- | --- | --- |
+| 5 razze e 4 classi | Una mappa iniziale e 3 livelli | Iniziativa e combattimenti a turni |
+| Armi, armature e pozioni | Statue, tesori e passaggi | Tiri di dado, punti vita e achievement |
 
 Le funzionalità presenti nel codice comprendono:
 
@@ -20,25 +44,25 @@ Le funzionalità presenti nel codice comprendono:
 
 L'interfaccia e i messaggi del gioco sono in inglese.
 
-## Anteprima
+## Cronache dal castello
 
-### Creazione del personaggio
+### I. Scegli il tuo eroe
 
 ![Creazione del personaggio](docs/images/Choose_hero_features.gif)
 
-### Ingresso nel castello
+### II. Varca le mura
 
 ![Ingresso nel castello](docs/images/Enter_in_the_castle.gif)
 
-### Interazione con gli oggetti
+### III. Scopri i tesori
 
 ![Interazione con gli oggetti](docs/images/Interaction_with_object.gif)
 
-### Combattimento
+### IV. Affronta i guardiani
 
 ![Combattimento](docs/images/Fight.gif)
 
-## Struttura del repository
+## La mappa del progetto
 
 ```text
 Game/
@@ -71,7 +95,9 @@ Header e implementazioni sono affiancati per responsabilità. Gli include del pr
 
 La libreria statica `core` contiene il codice condiviso dal gioco e dai test. L'eseguibile `Game` utilizza `src/main.cpp`; l'eseguibile `runAllTests` esegue la suite GoogleTest. Gli stati derivano da `GameState`; `Playable` raccoglie funzionalità comuni all'esplorazione. I creator costruiscono armi e armature, mentre `Observable` e `Observer` gestiscono le notifiche degli achievement.
 
-## Requisiti
+## Preparare la spedizione
+
+Requisiti e installazione per entrare nel castello.
 
 - Git, per clonare il repository e inizializzare i submodule.
 - Un compilatore con supporto C++11.
@@ -83,7 +109,7 @@ La libreria statica `core` contiene il codice condiviso dal gioco e dai test. L'
 
 Il progetto nasce in ambiente Windows/Visual Studio. Le istruzioni principali qui sotto usano PowerShell e una compilazione x64. Il codice usa l'API di SFML 2 e non è compatibile direttamente con SFML 3. Il port SFML del submodule vcpkg incluso dichiara la versione 2.5.1.
 
-## Preparazione del repository
+### Recuperare il progetto e le dipendenze
 
 Dopo aver clonato il repository, aprire un terminale nella sua cartella principale ed eseguire:
 
@@ -93,7 +119,7 @@ git submodule update --init --recursive
 
 Questo comando recupera GoogleTest e vcpkg nelle revisioni registrate dal repository. Un archivio ZIP di GitHub non contiene il codice dei submodule: per seguire questa procedura utilizzare un clone Git.
 
-## Compilazione su Windows con vcpkg
+## La forgia: compilazione su Windows
 
 Installare Visual Studio o i Build Tools con il carico di lavoro **Sviluppo di applicazioni desktop con C++**, un Windows SDK e CMake. Eseguire i comandi seguenti in PowerShell dalla radice del repository.
 
@@ -169,7 +195,9 @@ I comandi dipendono dalla schermata corrente; i messaggi a video indicano l'azio
 | Turno del nemico | D | Esegue l'attacco del nemico |
 | Notifica di achievement | Z | Chiude la notifica |
 
-## Test
+## Prove della gilda
+
+### Eseguire i test
 
 I test coprono costruzione e caratteristiche di eroi e nemici, armi e armature, attacchi, pozioni, collisioni e achievement.
 
@@ -189,7 +217,7 @@ Con un generatore a configurazione singola, il percorso è normalmente `build/te
 
 Alcuni test creano finestre SFML e caricano mappe e texture già durante l'inizializzazione: richiedono le risorse in `assets/` e una sessione grafica, quindi la suite non è predisposta per un ambiente senza display.
 
-## Risorse e stato del progetto
+## Inventario delle risorse e stato del progetto
 
 In `assets/` sono presenti **47 immagini**, le risorse del font TaylorGothic e **quattro mappe XML**: `PLMap.xml`, `FLMap.xml`, `SLMap.xml` e `TLMap.xml`. Le risorse sono state recuperate dalla precedente cartella `out/build/` e collocate fuori dalle directory di compilazione.
 
@@ -206,7 +234,7 @@ Per completare le risorse, ripristinare i file originali in questi percorsi. La 
 
 Durante la riorganizzazione sono stati verificati gli include interni e i riferimenti alle risorse disponibili. **La compilazione e l'esecuzione completa non sono state verificate**: nell'ambiente usato per la riorganizzazione CMake non ha trovato il package SFML. Le GIF mostrano il funzionamento del progetto originale e non certificano una nuova esecuzione della versione riorganizzata.
 
-## Problemi comuni
+## Ostacoli lungo il cammino
 
 | Problema | Verifica o soluzione |
 | --- | --- |
